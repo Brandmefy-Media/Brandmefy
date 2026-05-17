@@ -110,8 +110,9 @@ export default function Footer() {
                   brandmefymedia@gmail.com
                 </a>
               </li>
-              <li>Remote, working worldwide</li>
-              <li>Mon to Fri, 9 to 6</li>
+              <li>Coimbatore, Tamil Nadu, India</li>
+              <li className="text-white/55">Working remotely worldwide</li>
+              <li>Mon to Sat, 9 AM to 9 PM IST</li>
             </ul>
           </div>
         </div>

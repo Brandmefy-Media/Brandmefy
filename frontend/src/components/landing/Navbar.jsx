@@ -145,7 +145,7 @@ export default function Navbar() {
             >
               <span>brandmefymedia@gmail.com</span>
               <span className="uppercase tracking-[0.25em]">
-                Beyond Marketing
+                Coimbatore, India · Mon–Sat 9 AM to 9 PM
               </span>
             </motion.div>
           </motion.div>

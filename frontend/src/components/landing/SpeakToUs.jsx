@@ -63,7 +63,15 @@ export default function SpeakToUs() {
             transition={{ duration: 0.7 }}
             className="lg:col-span-6"
           >
-            <span className="section-label mb-6 inline-flex">Speak to us</span>
+            <div className="flex items-center gap-3 mb-6">
+              <span className="section-label inline-flex">Speak to us</span>
+              <span
+                className="sticker sticker-burst sticker-yellow text-[9px]"
+                style={{ transform: "rotate(-8deg)" }}
+              >
+                Reply in 24h
+              </span>
+            </div>
             <h2
               className="font-anton uppercase text-white tracking-[-0.025em]"
               style={{ fontSize: "clamp(44px, 7vw, 104px)", lineHeight: 0.95 }}
@@ -78,8 +86,8 @@ export default function SpeakToUs() {
             </p>
 
             <div className="mt-10 space-y-4 text-sm">
-              <div className="flex items-center gap-4">
-                <span className="text-white/40 uppercase tracking-[0.25em] text-xs w-20">
+              <div className="flex items-start gap-4">
+                <span className="text-white/40 uppercase tracking-[0.25em] text-xs w-20 pt-0.5">
                   Email
                 </span>
                 <a
@@ -90,17 +98,21 @@ export default function SpeakToUs() {
                   brandmefymedia@gmail.com
                 </a>
               </div>
-              <div className="flex items-center gap-4">
-                <span className="text-white/40 uppercase tracking-[0.25em] text-xs w-20">
+              <div className="flex items-start gap-4">
+                <span className="text-white/40 uppercase tracking-[0.25em] text-xs w-20 pt-0.5">
                   Studio
                 </span>
-                <span className="text-white/80">Remote, working worldwide</span>
+                <span className="text-white/80">
+                  Coimbatore, Tamil Nadu, India
+                  <br />
+                  <span className="text-white/50">Working remotely worldwide</span>
+                </span>
               </div>
-              <div className="flex items-center gap-4">
-                <span className="text-white/40 uppercase tracking-[0.25em] text-xs w-20">
+              <div className="flex items-start gap-4">
+                <span className="text-white/40 uppercase tracking-[0.25em] text-xs w-20 pt-0.5">
                   Hours
                 </span>
-                <span className="text-white/80">Mon to Fri, 9 to 6</span>
+                <span className="text-white/80">Mon to Sat, 9 AM to 9 PM IST</span>
               </div>
             </div>
           </motion.div>

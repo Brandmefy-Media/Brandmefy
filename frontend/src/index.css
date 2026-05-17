@@ -80,6 +80,11 @@
         font-weight: 400;
         letter-spacing: -0.015em;
     }
+    .font-oswald {
+        font-family: "Oswald", "Anton", sans-serif;
+        font-weight: 400;
+        letter-spacing: -0.005em;
+    }
     .font-body {
         font-family: "Inter", system-ui, sans-serif;
     }

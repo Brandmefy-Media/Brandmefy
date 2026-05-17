@@ -18,6 +18,7 @@ const SERVICES = [
     accent: "text-yellow-brand",
     bgAccent: "bg-yellow-brand/15 text-yellow-brand border-yellow-brand/30",
     outline: "text-outline-yellow",
+    previewImage: "https://images.unsplash.com/photo-1561070791-2526d30994b8?w=1200&q=80",
   },
   {
     id: "web",
@@ -34,6 +35,7 @@ const SERVICES = [
     accent: "text-pink-brand",
     bgAccent: "bg-pink-brand/15 text-pink-brand border-pink-brand/30",
     outline: "text-outline-pink",
+    previewImage: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200&q=80",
   },
   {
     id: "content",
@@ -66,6 +68,7 @@ const SERVICES = [
     accent: "text-cream-brand",
     bgAccent: "bg-white/10 text-cream-brand border-white/20",
     outline: "text-outline-cream-brand",
+    previewImage: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80",
   },
 ];
 
@@ -189,19 +192,28 @@ export default function Services() {
                   </div>
 
                   <div className="mt-8">
-                    <div className="rounded-2xl aspect-[5/4] w-full overflow-hidden relative bg-bg-3 flex items-center justify-center border border-white/10">
-                      <span
-                        className={`font-anton uppercase ${current.outline}`}
-                        style={{
-                          fontSize: "clamp(80px, 14vw, 220px)",
-                          lineHeight: 1,
-                        }}
-                      >
-                        0{active + 1}
-                      </span>
-                      <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-xs text-white/60">
-                        <span>{current.title}</span>
-                        <span>brandmefy / {current.id}</span>
+                    <div className="rounded-2xl aspect-[5/4] w-full overflow-hidden relative bg-bg-3 border border-white/10">
+                      <img
+                        src={current.previewImage}
+                        alt={current.title}
+                        className="absolute inset-0 w-full h-full object-cover"
+                        loading="lazy"
+                        style={{ filter: "brightness(0.65)" }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                      <div className="absolute top-4 right-4">
+                        <span
+                          className={`font-anton uppercase ${current.outline}`}
+                          style={{ fontSize: "72px", lineHeight: 0.85 }}
+                        >
+                          0{active + 1}
+                        </span>
+                      </div>
+                      <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-xs text-white/80">
+                        <span className="font-oswald uppercase tracking-wider">
+                          {current.title}
+                        </span>
+                        <span className="text-white/50">brandmefy / {current.id}</span>
                       </div>
                     </div>
                   </div>

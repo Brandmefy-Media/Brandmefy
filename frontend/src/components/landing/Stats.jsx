@@ -41,11 +41,31 @@ export default function Stats() {
     <section
       id="stats"
       data-testid="stats-section"
-      className="py-24 md:py-32 bg-[var(--bg-0)] relative"
+      className="py-24 md:py-32 bg-[var(--bg-0)] relative overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
+      {/* Studio background image */}
+      <div
+        aria-hidden
+        className="absolute inset-0 opacity-[0.12] pointer-events-none"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1800&q=80')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          maskImage:
+            "radial-gradient(ellipse at center, rgba(0,0,0,0.9), transparent 75%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse at center, rgba(0,0,0,0.9), transparent 75%)",
+        }}
+      />
+      <div className="max-w-7xl mx-auto px-4 md:px-6 relative">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
-          <span className="section-label inline-flex">Numbers</span>
+          <div className="flex items-center gap-4">
+            <span className="section-label inline-flex">Numbers</span>
+            <span className="sticker sticker-flower sticker-yellow text-[10px]" style={{ transform: "rotate(-6deg)" }}>
+              Receipts
+            </span>
+          </div>
           <p className="text-white/50 text-sm md:text-base max-w-md">
             A few honest figures from a few honest years of doing the work.
           </p>

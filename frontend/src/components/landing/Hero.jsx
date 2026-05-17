@@ -149,31 +149,12 @@ export default function Hero() {
           </button>
         </motion.div>
 
-        {/* Color chip strip - replaces circle */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="mt-16 md:mt-20 flex items-center gap-6 md:gap-10 text-xs uppercase tracking-[0.3em] text-white/40"
-        >
-          <span className="flex items-center gap-2">
-            <span className="w-3 h-3 rounded-full bg-yellow-brand" /> Bold
-          </span>
-          <span className="flex items-center gap-2">
-            <span className="w-3 h-3 rounded-full bg-pink-brand" /> Playful
-          </span>
-          <span className="flex items-center gap-2">
-            <span className="w-3 h-3 rounded-full bg-blue-brand" /> Sharp
-          </span>
-          <span className="hidden md:flex items-center gap-2">
-            <span className="w-3 h-3 rounded-full bg-cream-brand" /> Considered
-          </span>
-        </motion.div>
+        {/* Edgy sticker keeps a hint of color at hero bottom */}
 
         <button
           data-testid="hero-scroll-down"
           onClick={scrollNext}
-          className="mt-12 inline-flex items-center gap-2 text-xs text-white/50 hover:text-white transition-colors"
+          className="mt-16 mb-4 inline-flex items-center gap-2 text-xs text-white/50 hover:text-white transition-colors"
         >
           <ArrowDown size={14} /> Scroll
         </button>
