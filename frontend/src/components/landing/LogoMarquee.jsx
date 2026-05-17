@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import SectionBadge from "@/components/landing/SectionBadge";
 
 const LOGOS = [
   "LunarLab",
@@ -21,15 +22,7 @@ export default function LogoMarquee() {
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center text-center mb-14 relative">
-          <motion.span
-            initial={{ opacity: 0, scale: 0, rotate: -15 }}
-            whileInView={{ opacity: 1, scale: 1, rotate: -8 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, type: "spring" }}
-            className="sticker sticker-burst sticker-pink mb-8"
-          >
-            Brands
-          </motion.span>
+          <SectionBadge label="Brands" shape="apple" color="blue" rotate="-6deg" className="mb-6" />
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

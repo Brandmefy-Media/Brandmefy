@@ -1,5 +1,5 @@
 import React from "react";
-import { Instagram, Linkedin, Twitter, Mail } from "lucide-react";
+import { Instagram, Linkedin, Palette, Mail } from "lucide-react";
 
 const NAV = [
   { label: "Services", id: "services" },
@@ -8,6 +8,33 @@ const NAV = [
   { label: "About", id: "about" },
   { label: "FAQs", id: "faqs" },
   { label: "Speak to us", id: "speak-to-us" },
+];
+
+const SOCIALS = [
+  {
+    Icon: Instagram,
+    href: "https://instagram.com/brandmefy",
+    label: "Instagram",
+    hover: "hover:text-pink-brand hover:border-pink-brand",
+  },
+  {
+    Icon: Linkedin,
+    href: "https://linkedin.com/company/brandmefy",
+    label: "LinkedIn",
+    hover: "hover:text-blue-brand hover:border-blue-brand",
+  },
+  {
+    Icon: Palette,
+    href: "https://behance.net/brandmefy",
+    label: "Behance",
+    hover: "hover:text-yellow-brand hover:border-yellow-brand",
+  },
+  {
+    Icon: Mail,
+    href: "mailto:hello@brandmefy.com",
+    label: "Email",
+    hover: "hover:text-cream-brand hover:border-cream-brand",
+  },
 ];
 
 export default function Footer() {
@@ -25,7 +52,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
           <div className="lg:col-span-6">
             <div className="inline-flex items-center gap-3 mb-3">
-              <span className="font-anton text-3xl text-emerald-brand inline-flex items-center justify-center w-12 h-12 rounded-lg bg-emerald-brand/15 border border-emerald-brand/30 leading-none pt-1">
+              <span className="font-anton text-3xl text-yellow-brand inline-flex items-center justify-center w-12 h-12 rounded-lg bg-yellow-brand/15 border border-yellow-brand/30 leading-none pt-1">
                 B
               </span>
               <div className="flex flex-col">
@@ -42,26 +69,7 @@ export default function Footer() {
               bookmarking. No fluff, no fuss, just sharp creative work.
             </p>
             <div className="flex gap-3 mt-6">
-              {[
-                {
-                  Icon: Instagram,
-                  href: "https://instagram.com",
-                  label: "Instagram",
-                },
-                { Icon: Twitter, href: "https://x.com", label: "Twitter" },
-                {
-                  Icon: Linkedin,
-                  href: "https://linkedin.com",
-                  label: "LinkedIn",
-                },
-                {
-                  Icon: Mail,
-                  href: "mailto:brandmefymedia@gmail.com",
-                  label: "Email",
-                },
-              ].map(({ Icon, href, label }, i) => {
-                const hoverColors = ["hover:text-pink-brand hover:border-pink-brand", "hover:text-yellow-brand hover:border-yellow-brand", "hover:text-blue-brand hover:border-blue-brand", "hover:text-cream-brand hover:border-cream-brand"];
-                return (
+              {SOCIALS.map(({ Icon, href, label, hover }, i) => (
                 <a
                   key={i}
                   href={href}
@@ -69,12 +77,11 @@ export default function Footer() {
                   rel="noreferrer"
                   aria-label={label}
                   data-testid={`footer-social-${label.toLowerCase()}`}
-                  className={`w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-white/70 transition-colors ${hoverColors[i]}`}
+                  className={`w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-white/70 transition-colors ${hover}`}
                 >
                   <Icon size={16} />
                 </a>
-                );
-              })}
+              ))}
             </div>
           </div>
 
@@ -104,10 +111,10 @@ export default function Footer() {
             <ul className="space-y-2 text-white/80 text-sm">
               <li>
                 <a
-                  href="mailto:brandmefymedia@gmail.com"
+                  href="mailto:hello@brandmefy.com"
                   className="hover:text-pink-brand transition-colors break-all"
                 >
-                  brandmefymedia@gmail.com
+                  hello@brandmefy.com
                 </a>
               </li>
               <li>Coimbatore, Tamil Nadu, India</li>
@@ -133,7 +140,7 @@ export default function Footer() {
           <span>
             © {year} brandmefy. Beyond Marketing. All rights reserved.
           </span>
-          <span>Made with care, coffee and creativity.</span>
+          <span>Made in Coimbatore with care, coffee and creativity.</span>
         </div>
       </div>
     </footer>

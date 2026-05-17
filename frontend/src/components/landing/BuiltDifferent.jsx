@@ -1,6 +1,19 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Check, X } from "lucide-react";
+import {
+  X,
+  Sparkles,
+  MessageCircle,
+  Palette,
+  TrendingUp,
+  Users,
+  ReceiptText,
+  Wrench,
+  Layers,
+  Compass,
+  Heart,
+} from "lucide-react";
+import SectionBadge from "@/components/landing/SectionBadge";
 
 const OTHERS = [
   "Generic Solutions",
@@ -16,16 +29,16 @@ const OTHERS = [
 ];
 
 const US = [
-  "Personalized Plans",
-  "Plain Talk",
-  "Bold Ideas",
-  "Real ROI",
-  "Long-Term Partners",
-  "Transparent Pricing",
-  "Innovative Tools",
-  "Full-Service Experts",
-  "Proactive Strategies",
-  "Passion & Care",
+  { label: "Personalized Plans", Icon: Sparkles, color: "text-yellow-brand bg-yellow-brand/15 border-yellow-brand/30" },
+  { label: "Plain Talk", Icon: MessageCircle, color: "text-pink-brand bg-pink-brand/15 border-pink-brand/30" },
+  { label: "Bold Ideas", Icon: Palette, color: "text-blue-brand bg-blue-brand/15 border-blue-brand/30" },
+  { label: "Real ROI", Icon: TrendingUp, color: "text-yellow-brand bg-yellow-brand/15 border-yellow-brand/30" },
+  { label: "Long-Term Partners", Icon: Users, color: "text-pink-brand bg-pink-brand/15 border-pink-brand/30" },
+  { label: "Transparent Pricing", Icon: ReceiptText, color: "text-blue-brand bg-blue-brand/15 border-blue-brand/30" },
+  { label: "Innovative Tools", Icon: Wrench, color: "text-yellow-brand bg-yellow-brand/15 border-yellow-brand/30" },
+  { label: "Full-Service Experts", Icon: Layers, color: "text-pink-brand bg-pink-brand/15 border-pink-brand/30" },
+  { label: "Proactive Strategies", Icon: Compass, color: "text-blue-brand bg-blue-brand/15 border-blue-brand/30" },
+  { label: "Passion & Care", Icon: Heart, color: "text-pink-brand bg-pink-brand/15 border-pink-brand/30" },
 ];
 
 export default function BuiltDifferent() {
@@ -36,8 +49,8 @@ export default function BuiltDifferent() {
       className="py-24 md:py-32 bg-bg-2 border-t border-white/5"
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="flex flex-col gap-4 mb-14">
-          <span className="section-label inline-flex">Differences</span>
+        <div className="flex flex-col gap-6 mb-14">
+          <SectionBadge label="Differences" shape="diamond" color="yellow" rotate="-5deg" />
           <h2
             className="font-anton uppercase text-white tracking-[-0.025em]"
             style={{ fontSize: "clamp(44px, 9vw, 144px)", lineHeight: 0.9 }}
@@ -83,12 +96,12 @@ export default function BuiltDifferent() {
               brandmefy <span className="text-pink-brand">.</span>
             </h3>
             <ul className="space-y-4 relative">
-              {US.map((item, i) => (
+              {US.map(({ label, Icon, color }, i) => (
                 <li key={i} className="flex items-center gap-3 text-white">
-                  <span className="shrink-0 w-5 h-5 rounded-full bg-pink-brand text-white flex items-center justify-center">
-                    <Check size={12} strokeWidth={3} />
+                  <span className={`shrink-0 w-8 h-8 rounded-full border flex items-center justify-center ${color}`}>
+                    <Icon size={14} />
                   </span>
-                  <span className="text-base md:text-lg">{item}</span>
+                  <span className="text-base md:text-lg">{label}</span>
                 </li>
               ))}
             </ul>

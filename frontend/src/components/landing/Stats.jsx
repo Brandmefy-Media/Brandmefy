@@ -1,15 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
+import SectionBadge from "@/components/landing/SectionBadge";
 
 const STATS = [
-  { value: 120, suffix: "+", label: "Brands launched" },
-  { value: 350, suffix: "+", label: "Projects delivered" },
-  { value: 500, suffix: "+", label: "Moodboards created" },
-  { value: 99, suffix: "%", label: "Happy clients" },
+  { value: 30, suffix: "+", label: "Brands launched" },
+  { value: 100, suffix: "+", label: "Projects delivered" },
+  { value: 250, suffix: "+", label: "Moodboards created" },
+  { value: 95, suffix: "%", label: "Happy clients" },
 ];
 
 function Counter({ to, suffix }) {
-  const [val, setVal] = useState(0);
+  const [val, setVal] = useState(1);
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-50px" });
 
@@ -21,7 +22,7 @@ function Counter({ to, suffix }) {
     const tick = (t) => {
       const p = Math.min(1, (t - startTime) / duration);
       const eased = 1 - Math.pow(1 - p, 3);
-      setVal(Math.round(to * eased));
+      setVal(Math.max(1, Math.round(to * eased)));
       if (p < 1) raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
@@ -43,13 +44,12 @@ export default function Stats() {
       data-testid="stats-section"
       className="py-24 md:py-32 bg-[var(--bg-0)] relative overflow-hidden"
     >
-      {/* Studio background image */}
       <div
         aria-hidden
-        className="absolute inset-0 opacity-[0.12] pointer-events-none"
+        className="absolute inset-0 opacity-[0.10] pointer-events-none"
         style={{
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1800&q=80')",
+            "url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1800&q=80&auto=format&fit=crop')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           maskImage:
@@ -60,13 +60,8 @@ export default function Stats() {
       />
       <div className="max-w-7xl mx-auto px-4 md:px-6 relative">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
-          <div className="flex items-center gap-4">
-            <span className="section-label inline-flex">Numbers</span>
-            <span className="sticker sticker-flower sticker-yellow text-[10px]" style={{ transform: "rotate(-6deg)" }}>
-              Receipts
-            </span>
-          </div>
-          <p className="text-white/50 text-sm md:text-base max-w-md">
+          <SectionBadge label="Numbers" shape="badge" color="yellow" rotate="-5deg" />
+          <p className="text-white/55 text-sm md:text-base max-w-md">
             A few honest figures from a few honest years of doing the work.
           </p>
         </div>

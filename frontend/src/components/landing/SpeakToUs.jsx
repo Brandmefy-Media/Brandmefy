@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import axios from "axios";
 import { toast } from "sonner";
-import { Send, Loader2 } from "lucide-react";
+import { Send, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
+import SectionBadge from "@/components/landing/SectionBadge";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
@@ -14,27 +15,35 @@ export default function SpeakToUs() {
     message: "",
   });
   const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState({ type: null, message: "" });
 
   const setField = (key, value) => setForm((f) => ({ ...f, [key]: value }));
 
   const submit = async (e) => {
     e.preventDefault();
+    setStatus({ type: null, message: "" });
+
     if (!form.name || !form.email || !form.message) {
-      toast.error("Please fill in name, email and message.");
+      const msg = "Please fill in name, email and message.";
+      toast.error(msg);
+      setStatus({ type: "error", message: msg });
       return;
     }
+
     setLoading(true);
     try {
       const res = await axios.post(`${API}/contact`, form);
-      toast.success(
-        res.data?.message || "Message sent. We will be in touch.",
-      );
+      const msg = res.data?.message || "Message sent. We will be in touch.";
+      toast.success(msg);
+      setStatus({ type: "success", message: msg });
       setForm({ name: "", email: "", company: "", message: "" });
     } catch (err) {
       const msg =
         err?.response?.data?.detail ||
         "Something broke on our side. Try again in a sec.";
-      toast.error(typeof msg === "string" ? msg : "Submission failed.");
+      const finalMsg = typeof msg === "string" ? msg : "Submission failed.";
+      toast.error(finalMsg);
+      setStatus({ type: "error", message: finalMsg });
     } finally {
       setLoading(false);
     }
@@ -63,17 +72,9 @@ export default function SpeakToUs() {
             transition={{ duration: 0.7 }}
             className="lg:col-span-6"
           >
-            <div className="flex items-center gap-3 mb-6">
-              <span className="section-label inline-flex">Speak to us</span>
-              <span
-                className="sticker sticker-burst sticker-yellow text-[9px]"
-                style={{ transform: "rotate(-8deg)" }}
-              >
-                Reply in 24h
-              </span>
-            </div>
+            <SectionBadge label="Speak to us" shape="badge" color="pink" rotate="-5deg" />
             <h2
-              className="font-anton uppercase text-white tracking-[-0.025em]"
+              className="font-anton uppercase text-white tracking-[-0.025em] mt-6"
               style={{ fontSize: "clamp(44px, 7vw, 104px)", lineHeight: 0.95 }}
             >
               Let us build something{" "}
@@ -92,10 +93,10 @@ export default function SpeakToUs() {
                 </span>
                 <a
                   data-testid="speak-email-link"
-                  href="mailto:brandmefymedia@gmail.com"
+                  href="mailto:hello@brandmefy.com"
                   className="text-white hover:text-yellow-brand transition-colors break-all"
                 >
-                  brandmefymedia@gmail.com
+                  hello@brandmefy.com
                 </a>
               </div>
               <div className="flex items-start gap-4">
@@ -129,6 +130,7 @@ export default function SpeakToUs() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <FieldInput
                 id="speak-name"
+                name="name"
                 label="Your name"
                 placeholder="Jane Doe"
                 value={form.name}
@@ -137,6 +139,7 @@ export default function SpeakToUs() {
               />
               <FieldInput
                 id="speak-email"
+                name="email"
                 label="Email"
                 placeholder="jane@brand.co"
                 type="email"
@@ -147,6 +150,7 @@ export default function SpeakToUs() {
             </div>
             <FieldInput
               id="speak-company"
+              name="company"
               label="Company"
               placeholder="Optional"
               value={form.company}
@@ -161,6 +165,7 @@ export default function SpeakToUs() {
               </label>
               <textarea
                 id="speak-message"
+                name="message"
                 data-testid="speak-message"
                 rows={5}
                 value={form.message}
@@ -188,6 +193,31 @@ export default function SpeakToUs() {
               )}
             </button>
 
+            {status.type === "success" && (
+              <div
+                data-testid="speak-success"
+                role="status"
+                className="flex items-start gap-3 p-4 rounded-xl border border-yellow-brand/40 bg-yellow-brand/10 text-yellow-brand"
+              >
+                <CheckCircle2 size={18} className="shrink-0 mt-0.5" />
+                <span className="text-sm leading-relaxed">
+                  {status.message}
+                </span>
+              </div>
+            )}
+            {status.type === "error" && (
+              <div
+                data-testid="speak-error"
+                role="alert"
+                className="flex items-start gap-3 p-4 rounded-xl border border-red-400/40 bg-red-400/10 text-red-300"
+              >
+                <AlertCircle size={18} className="shrink-0 mt-0.5" />
+                <span className="text-sm leading-relaxed">
+                  {status.message}
+                </span>
+              </div>
+            )}
+
             <p className="text-xs text-white/40">
               By submitting, you agree to be contacted about your project. We
               do not sell or share your details.
@@ -201,6 +231,7 @@ export default function SpeakToUs() {
 
 function FieldInput({
   id,
+  name,
   label,
   type = "text",
   value,
@@ -218,6 +249,7 @@ function FieldInput({
       </label>
       <input
         id={id}
+        name={name}
         data-testid={id}
         type={type}
         value={value}

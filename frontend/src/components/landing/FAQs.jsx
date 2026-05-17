@@ -6,6 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import SectionBadge from "@/components/landing/SectionBadge";
 
 const FAQ_ITEMS = [
   {
@@ -48,13 +49,13 @@ export default function FAQs() {
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-5">
-            <span className="section-label mb-6 inline-flex">FAQs</span>
+            <SectionBadge label="FAQs" shape="spike" color="yellow" rotate="-5deg" />
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="font-anton uppercase text-white tracking-[-0.025em]"
+              className="font-anton uppercase text-white tracking-[-0.025em] mt-6"
               style={{ fontSize: "clamp(44px, 7vw, 104px)", lineHeight: 0.95 }}
             >
               You ask,<br />

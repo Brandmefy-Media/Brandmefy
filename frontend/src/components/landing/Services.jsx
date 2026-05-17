@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import SectionBadge from "@/components/landing/SectionBadge";
 
 const SERVICES = [
   {
@@ -18,7 +19,8 @@ const SERVICES = [
     accent: "text-yellow-brand",
     bgAccent: "bg-yellow-brand/15 text-yellow-brand border-yellow-brand/30",
     outline: "text-outline-yellow",
-    previewImage: "https://images.unsplash.com/photo-1561070791-2526d30994b8?w=1200&q=80",
+    previewImage:
+      "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1200&q=80&auto=format&fit=crop",
   },
   {
     id: "web",
@@ -35,7 +37,8 @@ const SERVICES = [
     accent: "text-pink-brand",
     bgAccent: "bg-pink-brand/15 text-pink-brand border-pink-brand/30",
     outline: "text-outline-pink",
-    previewImage: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200&q=80",
+    previewImage:
+      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200&q=80&auto=format&fit=crop",
   },
   {
     id: "content",
@@ -52,6 +55,8 @@ const SERVICES = [
     accent: "text-blue-brand",
     bgAccent: "bg-blue-brand/15 text-blue-brand border-blue-brand/30",
     outline: "text-outline-blue",
+    previewImage:
+      "https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=1200&q=80&auto=format&fit=crop",
   },
   {
     id: "marketing",
@@ -68,7 +73,26 @@ const SERVICES = [
     accent: "text-cream-brand",
     bgAccent: "bg-white/10 text-cream-brand border-white/20",
     outline: "text-outline-cream-brand",
-    previewImage: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80",
+    previewImage:
+      "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80&auto=format&fit=crop",
+  },
+  {
+    id: "ecommerce",
+    title: "Ecommerce & Shopify",
+    tagline: "Stores that look gorgeous and sell hard.",
+    chips: [
+      "Shopify Build",
+      "Theme Customisation",
+      "Product Photography",
+      "Conversion UX",
+      "App Integrations",
+    ],
+    body: "From storefront design to checkout flow, we build Shopify stores that feel premium, load fast and turn scrolls into orders.",
+    accent: "text-yellow-brand",
+    bgAccent: "bg-yellow-brand/15 text-yellow-brand border-yellow-brand/30",
+    outline: "text-outline-yellow",
+    previewImage:
+      "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1200&q=80&auto=format&fit=crop",
   },
 ];
 
@@ -83,8 +107,8 @@ export default function Services() {
       className="py-24 md:py-32 bg-bg-1 relative"
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="flex flex-col gap-4 mb-12 md:mb-16">
-          <span className="section-label inline-flex">Services</span>
+        <div className="flex flex-col gap-6 mb-12 md:mb-16">
+          <SectionBadge label="Services" shape="scallop" color="cream" rotate="-3deg" />
           <h2
             className="font-anton uppercase text-white tracking-[-0.025em]"
             style={{ fontSize: "clamp(44px, 9vw, 144px)", lineHeight: 0.9 }}
@@ -116,7 +140,7 @@ export default function Services() {
                     </span>
                     <h3
                       className="font-anton uppercase tracking-tight"
-                      style={{ fontSize: "clamp(26px, 5vw, 72px)", lineHeight: 1 }}
+                      style={{ fontSize: "clamp(24px, 4.5vw, 64px)", lineHeight: 1 }}
                     >
                       {s.title}
                     </h3>
@@ -177,7 +201,9 @@ export default function Services() {
                   className="card-surface p-6 md:p-10 min-h-[440px] flex flex-col justify-between"
                 >
                   <div>
-                    <span className={`inline-block px-3 py-1 text-[10px] uppercase tracking-[0.25em] rounded-full mb-6 border ${current.bgAccent}`}>
+                    <span
+                      className={`inline-block px-3 py-1 text-[10px] uppercase tracking-[0.25em] rounded-full mb-6 border ${current.bgAccent}`}
+                    >
                       {current.id}
                     </span>
                     <h4
@@ -198,7 +224,7 @@ export default function Services() {
                         alt={current.title}
                         className="absolute inset-0 w-full h-full object-cover"
                         loading="lazy"
-                        style={{ filter: "brightness(0.65)" }}
+                        style={{ filter: "brightness(0.7)" }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                       <div className="absolute top-4 right-4">
@@ -209,11 +235,11 @@ export default function Services() {
                           0{active + 1}
                         </span>
                       </div>
-                      <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-xs text-white/80">
+                      <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-xs text-white/90">
                         <span className="font-oswald uppercase tracking-wider">
                           {current.title}
                         </span>
-                        <span className="text-white/50">brandmefy / {current.id}</span>
+                        <span className="text-white/60">brandmefy / {current.id}</span>
                       </div>
                     </div>
                   </div>

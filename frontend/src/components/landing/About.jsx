@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import SectionBadge from "@/components/landing/SectionBadge";
 
 export default function About() {
   return (
@@ -8,13 +9,12 @@ export default function About() {
       data-testid="about-section"
       className="py-24 md:py-32 bg-bg-1 border-t border-white/5 relative overflow-hidden"
     >
-      {/* Studio meeting background */}
       <div
         aria-hidden
         className="absolute inset-0 opacity-[0.10] pointer-events-none"
         style={{
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1800&q=80')",
+            "url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1800&q=80&auto=format&fit=crop')",
           backgroundSize: "cover",
           backgroundPosition: "center right",
           maskImage:
@@ -25,33 +25,29 @@ export default function About() {
       />
       <div
         aria-hidden
-        className="absolute -top-32 -left-32 w-[420px] h-[420px] rounded-full bg-pink-brand/8 blur-[140px] pointer-events-none"
+        className="absolute -top-32 -left-32 w-[420px] h-[420px] rounded-full bg-pink-brand/[0.08] blur-[140px] pointer-events-none"
       />
 
       <div className="max-w-7xl mx-auto px-4 md:px-6 relative">
-        <div className="flex items-center gap-4 mb-6">
-          <span className="section-label inline-flex">About us</span>
-          <span
-            className="sticker sticker-flower sticker-pink text-[10px]"
-            style={{ transform: "rotate(-6deg)" }}
-          >
-            Hello there
-          </span>
-        </div>
+        <SectionBadge label="About us" shape="cloud" color="pink" rotate="-4deg" />
+
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="font-anton uppercase text-white max-w-5xl tracking-[-0.025em]"
-          style={{ fontSize: "clamp(28px, 5vw, 88px)", lineHeight: 1.04 }}
+          className="font-display text-white max-w-5xl mt-8"
+          style={{
+            fontSize: "clamp(22px, 3.4vw, 48px)",
+            lineHeight: 1.25,
+            fontWeight: 400,
+            letterSpacing: "-0.01em",
+          }}
         >
-          We started at a kitchen table in Coimbatore with coffee, chaos and a
-          shared love for bold ideas. Now we are a small team doing big things
-          for brands across the world.{" "}
-          <span className="text-blue-brand">
-            Branding, designing, creating
-          </span>{" "}
+          We started at a kitchen table in <span className="text-yellow-brand font-anton">Coimbatore</span> with coffee, chaos and a shared love
+          for bold ideas. Now we are a small team doing big things for brands
+          across the world.{" "}
+          <span className="text-blue-brand font-anton">Branding, designing, creating</span>{" "}
           work that actually makes people feel something. No fluff, no fuss,
           just scroll-stopping creativity.
         </motion.p>
@@ -60,7 +56,7 @@ export default function About() {
           {[
             { label: "Based in", value: "Coimbatore, India", color: "text-yellow-brand" },
             { label: "Available", value: "Worldwide, remote", color: "text-pink-brand" },
-            { label: "Open hours", value: "Mon to Sat, 9 to 9", color: "text-blue-brand" },
+            { label: "Open hours", value: "Mon to Sat, 9 AM to 9 PM IST", color: "text-blue-brand" },
           ].map((item, i) => (
             <motion.div
               key={i}
@@ -73,7 +69,7 @@ export default function About() {
               <div className="text-xs uppercase tracking-[0.25em] text-white/40 mb-2">
                 {item.label}
               </div>
-              <div className={`font-oswald text-xl md:text-2xl uppercase ${item.color}`}>
+              <div className={`font-oswald text-lg md:text-xl uppercase ${item.color}`}>
                 {item.value}
               </div>
             </motion.div>

@@ -143,7 +143,7 @@ export default function Navbar() {
               transition={{ delay: 0.6, duration: 0.4 }}
               className="absolute bottom-6 left-0 right-0 px-4 md:px-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/50"
             >
-              <span>brandmefymedia@gmail.com</span>
+              <span>hello@brandmefy.com</span>
               <span className="uppercase tracking-[0.25em]">
                 Coimbatore, India · Mon–Sat 9 AM to 9 PM
               </span>

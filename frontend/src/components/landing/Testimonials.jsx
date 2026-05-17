@@ -1,57 +1,43 @@
 import React from "react";
-import { Quote, Play } from "lucide-react";
+import { Quote } from "lucide-react";
+import SectionBadge from "@/components/landing/SectionBadge";
 
 const TESTIMONIALS = [
   {
-    name: "Tobias Green",
-    role: "Founder, GreenSpark Innovations",
+    name: "Karthik Subramanian",
+    role: "Founder, Annapoorna Spices, Coimbatore",
     quote:
-      "Working with this team was a dream. Super organized, wildly creative, and just fun to talk to. They totally got our brand from day one.",
+      "We came in with a 30 year old family business and walked out with a brand that feels fresh, premium and proudly Tamil. Sales doubled within a quarter.",
   },
   {
-    name: "Silas Leighton",
-    role: "Managing Director, VentureVista",
+    name: "Divya Ramaswamy",
+    role: "CEO, Madras Threads",
     quote:
-      "They took our messy ideas and turned them into a stunning identity. Everything feels cohesive, intentional and us. We are obsessed.",
+      "They got our story, our colours, our customer in the first meeting. The new identity travels beautifully from Chennai stores to our online drops.",
   },
   {
-    name: "Orion Vance",
-    role: "CEO, Lunar Lux Co.",
+    name: "Ranjit Kumar",
+    role: "Co-Founder, Nilgiri Brews",
     quote:
-      "We still get compliments on our branding. It feels premium, fun and totally fits our vibe. Could not have asked for a better team.",
+      "Packaging, website, social, photoshoot all under one roof. Brandmefy made our craft coffee feel like a luxury brand without losing the soul.",
   },
   {
-    name: "Callum Yates",
-    role: "Co-Founder, Driftwood Media",
+    name: "Anitha Vasudevan",
+    role: "Director, Kovai Wellness Studio",
     quote:
-      "We have worked with other agencies, but this one felt different in the best way. Creative with purpose and amazing attention to detail.",
+      "Calm, considered and creative. Our wellness brand finally looks the way it feels. Booking inquiries are up over 60 percent.",
   },
   {
-    name: "Jasper Lowell",
-    role: "CEO, CopperLeaf Enterprises",
+    name: "Surya Prakash",
+    role: "Owner, Madurai Silks Online",
     quote:
-      "Our online presence went from zero to hero in no time. The team made the process so seamless, I almost forgot I was working on a big project.",
+      "The new Shopify store is fast, gorgeous and so easy to manage. We finally feel ready to sell outside India with confidence.",
   },
   {
-    name: "Lowell Vance",
-    role: "Brand Manager, Stellar Bloom Studio",
+    name: "Lakshmi Narayanan",
+    role: "Brand Manager, Erode Foods",
     quote:
-      "Incredible team. They made our brand feel fresh, fun and 100 percent us. The whole process was smooth and actually enjoyable.",
-  },
-];
-
-const VIDEO_THUMBS = [
-  {
-    name: "Magnus Hawthorne",
-    role: "Owner, Bayleaf",
-    thumb:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=900&q=80",
-  },
-  {
-    name: "Thaddeus Montgomery",
-    role: "Owner, GoldGarden",
-    thumb:
-      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=900&q=80",
+      "The team treats your brand like their own. Every detail considered, every deadline met. Easily the best agency we have worked with.",
   },
 ];
 
@@ -63,8 +49,8 @@ export default function Testimonials() {
       className="py-24 md:py-32 bg-[var(--bg-0)] border-t border-white/5"
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="flex flex-col gap-4 mb-12">
-          <span className="section-label inline-flex">Testimonials</span>
+        <div className="flex flex-col gap-6 mb-12">
+          <SectionBadge label="Testimonials" shape="cloud" color="pink" rotate="-4deg" />
           <h2
             className="font-anton uppercase text-white tracking-[-0.025em]"
             style={{ fontSize: "clamp(44px, 9vw, 144px)", lineHeight: 0.9 }}
@@ -95,37 +81,6 @@ export default function Testimonials() {
             </div>
           ))}
         </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 md:px-6 mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-        {VIDEO_THUMBS.map((v, i) => (
-          <button
-            key={i}
-            data-testid={`video-testimonial-${i}`}
-            className="group relative aspect-video rounded-3xl overflow-hidden border border-white/10"
-          >
-            <img
-              src={v.thumb}
-              alt={v.name}
-              loading="lazy"
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-black/40" />
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-              <span className="w-16 h-16 rounded-full bg-blue-brand text-white flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Play size={28} fill="currentColor" />
-              </span>
-            </div>
-            <div className="absolute bottom-4 left-5 right-5 flex items-end justify-between">
-              <div>
-                <div className="font-anton uppercase text-white text-xl tracking-tight">
-                  {v.name}
-                </div>
-                <div className="text-xs text-white/70">{v.role}</div>
-              </div>
-            </div>
-          </button>
-        ))}
       </div>
     </section>
   );

@@ -9,6 +9,7 @@ import {
   Lightbulb,
   Ruler,
 } from "lucide-react";
+import SectionBadge from "@/components/landing/SectionBadge";
 
 const BENEFITS = [
   {
@@ -59,8 +60,8 @@ export default function Benefits() {
       className="py-24 md:py-32 bg-bg-2"
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="flex flex-col gap-4 mb-12">
-          <span className="section-label inline-flex">Benefits</span>
+        <div className="flex flex-col gap-6 mb-12">
+          <SectionBadge label="Benefits" shape="hex" color="blue" rotate="4deg" />
           <h2
             className="font-anton uppercase text-white tracking-[-0.025em]"
             style={{ fontSize: "clamp(44px, 9vw, 144px)", lineHeight: 0.9 }}
