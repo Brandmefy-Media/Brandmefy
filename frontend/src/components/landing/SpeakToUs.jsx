@@ -29,6 +29,12 @@ export default function SpeakToUs() {
       setStatus({ type: "error", message: msg });
       return;
     }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      const msg = "Please enter a valid email address.";
+      toast.error(msg);
+      setStatus({ type: "error", message: msg });
+      return;
+    }
 
     setLoading(true);
     try {
@@ -121,6 +127,7 @@ export default function SpeakToUs() {
           <motion.form
             data-testid="speak-form"
             onSubmit={submit}
+            noValidate
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
