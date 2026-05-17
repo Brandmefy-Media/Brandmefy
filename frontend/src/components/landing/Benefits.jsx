@@ -56,13 +56,16 @@ export default function Benefits() {
     <section
       id="benefits"
       data-testid="benefits-section"
-      className="py-24 md:py-32 border-t border-white/5"
+      className="py-24 md:py-32 bg-[var(--brand-black)]"
     >
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="flex flex-col gap-4 mb-12">
-          <span className="section-label">Benefits</span>
-          <h2 className="font-serif-display text-4xl md:text-6xl tracking-tight max-w-3xl">
-            Why we are the <em className="text-tomato not-italic">best</em>.
+          <span className="section-label inline-flex">Benefits</span>
+          <h2
+            className="font-display-bold uppercase text-cream"
+            style={{ fontSize: "clamp(40px, 8vw, 128px)", lineHeight: 0.92, letterSpacing: "-0.02em" }}
+          >
+            Why we are <span className="text-green-brand">the best</span>
           </h2>
         </div>
 
@@ -77,15 +80,13 @@ export default function Benefits() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: (i % 4) * 0.05 }}
-                className={`card-surface p-6 md:p-8 flex flex-col gap-4 min-h-[200px] ${
-                  b.span ?? ""
-                }`}
+                className={`card-surface p-6 md:p-8 flex flex-col gap-4 min-h-[200px] ${b.span ?? ""}`}
               >
-                <div className="w-11 h-11 rounded-xl bg-cream/5 flex items-center justify-center text-cream">
+                <div className="w-11 h-11 rounded-xl bg-green-brand/15 flex items-center justify-center text-green-brand">
                   <Icon size={20} />
                 </div>
                 <div>
-                  <h3 className="font-serif-display text-xl md:text-2xl leading-tight mb-2">
+                  <h3 className="font-display-bold uppercase text-xl md:text-2xl tracking-tight mb-2 text-cream">
                     {b.title}
                   </h3>
                   <p className="text-cream/60 text-sm leading-relaxed">{b.body}</p>

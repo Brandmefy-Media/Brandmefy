@@ -34,13 +34,16 @@ export default function Portfolio() {
     <section
       id="portfolio"
       data-testid="portfolio-section"
-      className="py-24 md:py-32 border-t border-white/5"
+      className="py-24 md:py-32 bg-[var(--brand-black)] border-t border-white/5"
     >
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="flex flex-col gap-4 mb-12">
-          <span className="section-label">Portfolio</span>
-          <h2 className="font-serif-display text-4xl md:text-6xl tracking-tight max-w-3xl">
-            Look what we <em className="text-tomato not-italic">made</em>.
+          <span className="section-label inline-flex">Portfolio</span>
+          <h2
+            className="font-display-bold uppercase text-cream"
+            style={{ fontSize: "clamp(40px, 8vw, 128px)", lineHeight: 0.92, letterSpacing: "-0.02em" }}
+          >
+            Look what <span className="text-green-brand">we made</span>
           </h2>
         </div>
 
@@ -64,14 +67,14 @@ export default function Portfolio() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
               <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end">
-                <span className="text-xs uppercase tracking-[0.25em] text-tomato mb-2">
+                <span className="text-xs uppercase tracking-[0.25em] text-green-brand mb-2">
                   {p.category}
                 </span>
                 <div className="flex items-end justify-between gap-4">
-                  <h3 className="font-serif-display text-3xl md:text-4xl tracking-tight">
+                  <h3 className="font-display-bold uppercase text-2xl md:text-4xl tracking-tight text-cream">
                     {p.title}
                   </h3>
-                  <span className="w-12 h-12 rounded-full bg-cream text-black flex items-center justify-center shrink-0 translate-y-2 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                  <span className="w-11 h-11 rounded-full bg-green-brand text-black flex items-center justify-center shrink-0 translate-y-2 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
                     <ArrowUpRight size={20} />
                   </span>
                 </div>

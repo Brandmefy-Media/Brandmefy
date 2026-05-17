@@ -17,31 +17,46 @@ export default function LogoMarquee() {
     <section
       id="brands"
       data-testid="brands-section"
-      className="py-20 md:py-28 border-t border-white/5"
+      className="section-light py-24 md:py-36 relative overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="flex flex-col gap-4 mb-10"
-        >
-          <span className="section-label">Brands</span>
-          <h2 className="font-serif-display text-4xl md:text-6xl tracking-tight max-w-3xl">
-            We built the rocket, <em className="text-tomato not-italic">they flew</em>.
-          </h2>
-        </motion.div>
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="flex flex-col items-center text-center mb-12">
+          <motion.span
+            initial={{ opacity: 0, scale: 0, rotate: -15 }}
+            whileInView={{ opacity: 1, scale: 1, rotate: -8 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, type: "spring" }}
+            className="sticker sticker-burst mb-6"
+            style={{ background: "var(--brand-green)" }}
+          >
+            Brands
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="font-display-bold uppercase text-black"
+            style={{
+              fontSize: "clamp(48px, 9vw, 160px)",
+              lineHeight: 0.92,
+              letterSpacing: "-0.03em",
+            }}
+          >
+            We built the<br />rocket, they flew
+          </motion.h2>
+        </div>
       </div>
 
-      <div className="marquee py-6 border-y border-white/5 bg-charcoal/40">
+      <div className="marquee py-8">
         <div className="marquee-track">
           {[...LOGOS, ...LOGOS].map((logo, i) => (
             <span
               key={i}
-              className="font-serif-display text-3xl md:text-5xl text-cream/40 hover:text-cream transition-colors duration-300 whitespace-nowrap"
+              className="font-display-bold text-3xl md:text-5xl text-black/30 hover:text-black transition-colors duration-300 whitespace-nowrap uppercase tracking-tight inline-flex items-center gap-4"
             >
-              {logo} <span className="text-tomato/60">*</span>
+              {logo}
+              <span className="inline-block w-3 h-3 rounded-full bg-green-brand" />
             </span>
           ))}
         </div>

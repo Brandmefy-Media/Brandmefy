@@ -41,11 +41,16 @@ export default function Stats() {
     <section
       id="stats"
       data-testid="stats-section"
-      className="py-24 md:py-32 border-t border-white/5"
+      className="py-24 md:py-32 bg-[var(--brand-black)] relative"
     >
-      <div className="max-w-7xl mx-auto px-6">
-        <span className="section-label mb-6 inline-flex">Numbers</span>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 mt-8">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+          <span className="section-label inline-flex">Numbers</span>
+          <p className="text-cream/50 text-sm md:text-base max-w-md">
+            A few honest figures from a few honest years of doing the work.
+          </p>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4">
           {STATS.map((s, i) => (
             <motion.div
               key={i}
@@ -56,10 +61,10 @@ export default function Stats() {
               transition={{ duration: 0.7, delay: i * 0.08 }}
               className="border-t border-white/10 pt-6"
             >
-              <div className="font-serif-display text-5xl md:text-7xl tracking-tight">
+              <div className="font-display-bold uppercase text-cream" style={{ fontSize: "clamp(40px, 7vw, 96px)", lineHeight: 0.95 }}>
                 <Counter to={s.value} suffix={s.suffix} />
               </div>
-              <div className="mt-3 text-sm text-cream/55 uppercase tracking-wider">
+              <div className="mt-3 text-xs md:text-sm text-cream/55 uppercase tracking-wider">
                 {s.label}
               </div>
             </motion.div>

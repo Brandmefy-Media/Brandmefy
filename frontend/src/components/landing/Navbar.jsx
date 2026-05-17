@@ -10,6 +10,33 @@ const NAV_LINKS = [
   { label: "FAQs", id: "faqs" },
 ];
 
+function BrandmefyLogo({ size = "md", invert = false }) {
+  const sizes = {
+    sm: { letter: "text-lg", text: "text-xl" },
+    md: { letter: "text-xl", text: "text-2xl" },
+    lg: { letter: "text-3xl", text: "text-4xl" },
+  };
+  const s = sizes[size] ?? sizes.md;
+  return (
+    <span className="inline-flex items-center gap-2">
+      <span
+        className={`font-display-bold ${s.letter} text-green-brand inline-flex items-center justify-center w-8 h-8 rounded-md bg-green-brand/15 leading-none`}
+        aria-hidden
+      >
+        B
+      </span>
+      <span
+        className={`font-display ${s.text} tracking-tight ${
+          invert ? "text-black" : "text-cream"
+        }`}
+        style={{ fontWeight: 500 }}
+      >
+        brandmefy
+      </span>
+    </span>
+  );
+}
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -34,17 +61,17 @@ export default function Navbar() {
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "py-3 bg-black/70 backdrop-blur-xl border-b border-white/5"
-          : "py-5 bg-transparent"
+          ? "py-3 bg-black/75 backdrop-blur-xl border-b border-white/5"
+          : "py-4 md:py-5 bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between">
         <button
           data-testid="logo-home"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="font-serif-display text-2xl tracking-tight text-cream"
+          aria-label="brandmefy home"
         >
-          Brandmefy<span className="text-tomato">.</span>
+          <BrandmefyLogo size="md" />
         </button>
 
         <nav className="hidden md:flex items-center gap-8">
@@ -72,11 +99,11 @@ export default function Navbar() {
 
         <button
           data-testid="nav-mobile-toggle"
-          className="md:hidden text-cream"
+          className="md:hidden text-cream p-2 -mr-2"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
         >
-          {open ? <X size={24} /> : <Menu size={24} />}
+          {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
@@ -96,7 +123,7 @@ export default function Navbar() {
                   key={link.id}
                   data-testid={`nav-mobile-link-${link.id}`}
                   onClick={() => scrollTo(link.id)}
-                  className="text-left text-cream/80 text-base"
+                  className="text-left text-cream/80 text-base py-1"
                 >
                   {link.label}
                 </button>

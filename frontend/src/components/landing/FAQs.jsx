@@ -43,9 +43,9 @@ export default function FAQs() {
     <section
       id="faqs"
       data-testid="faqs-section"
-      className="py-24 md:py-32 border-t border-white/5"
+      className="py-24 md:py-32 bg-[var(--brand-black)] border-t border-white/5"
     >
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-5">
             <span className="section-label mb-6 inline-flex">FAQs</span>
@@ -54,9 +54,10 @@ export default function FAQs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="font-serif-display text-4xl md:text-6xl tracking-tight"
+              className="font-display-bold uppercase text-cream"
+              style={{ fontSize: "clamp(40px, 7vw, 96px)", lineHeight: 0.95, letterSpacing: "-0.02em" }}
             >
-              You ask, <em className="text-tomato not-italic">we answer</em>.
+              You ask,<br /><span className="text-green-brand">we answer</span>
             </motion.h2>
             <p className="text-cream/60 mt-6 max-w-sm">
               Still curious? Drop us a note and we will reply with the real
@@ -73,7 +74,7 @@ export default function FAQs() {
                   data-testid={`faq-item-${i}`}
                   className="border-white/10"
                 >
-                  <AccordionTrigger className="text-left font-serif-display text-xl md:text-2xl py-6 hover:no-underline hover:text-tomato">
+                  <AccordionTrigger className="text-left font-display-bold uppercase text-lg md:text-2xl tracking-tight py-6 hover:no-underline hover:text-green-brand">
                     {item.q}
                   </AccordionTrigger>
                   <AccordionContent className="text-cream/65 text-base leading-relaxed pb-6">

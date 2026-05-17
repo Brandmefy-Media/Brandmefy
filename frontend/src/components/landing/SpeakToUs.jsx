@@ -42,13 +42,13 @@ export default function SpeakToUs() {
     <section
       id="speak-to-us"
       data-testid="speak-section"
-      className="py-24 md:py-32 border-t border-white/5 relative overflow-hidden"
+      className="py-24 md:py-32 bg-[var(--brand-black)] border-t border-white/5 relative overflow-hidden"
     >
       <div
         aria-hidden
-        className="absolute -top-32 right-0 w-[520px] h-[520px] rounded-full bg-tomato/10 blur-[140px]"
+        className="absolute -top-32 right-0 w-[520px] h-[520px] rounded-full bg-green-brand/10 blur-[140px]"
       />
-      <div className="max-w-7xl mx-auto px-6 relative">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -58,9 +58,12 @@ export default function SpeakToUs() {
             className="lg:col-span-6"
           >
             <span className="section-label mb-6 inline-flex">Speak to us</span>
-            <h2 className="font-serif-display text-5xl md:text-7xl tracking-tight leading-[1.02]">
+            <h2
+              className="font-display-bold uppercase text-cream"
+              style={{ fontSize: "clamp(40px, 7vw, 96px)", lineHeight: 0.95, letterSpacing: "-0.02em" }}
+            >
               Let us build something{" "}
-              <em className="text-tomato not-italic">great</em> together.
+              <span className="text-green-brand">great</span> together
             </h2>
             <p className="text-cream/65 mt-6 max-w-md text-base md:text-lg">
               No hidden fees, no copy-paste pitches. Tell us about your project
@@ -76,7 +79,7 @@ export default function SpeakToUs() {
                 <a
                   data-testid="speak-email-link"
                   href="mailto:brandmefymedia@gmail.com"
-                  className="text-cream hover:text-tomato transition-colors"
+                  className="text-cream hover:text-green-brand transition-colors break-all"
                 >
                   brandmefymedia@gmail.com
                 </a>
@@ -145,7 +148,7 @@ export default function SpeakToUs() {
                 value={form.message}
                 onChange={(e) => setField("message", e.target.value)}
                 placeholder="A few lines about goals, timeline and what you have already tried."
-                className="bg-black/40 border border-white/10 focus:border-tomato focus:outline-none rounded-xl px-4 py-3 text-cream placeholder:text-cream/30 resize-none transition-colors"
+                className="bg-black/40 border border-white/10 focus:border-green-brand focus:outline-none rounded-xl px-4 py-3 text-cream placeholder:text-cream/30 resize-none transition-colors"
                 required
               />
             </div>
@@ -181,10 +184,7 @@ export default function SpeakToUs() {
 function FieldInput({ id, label, type = "text", value, onChange, placeholder, required }) {
   return (
     <div className="flex flex-col gap-2">
-      <label
-        htmlFor={id}
-        className="text-xs uppercase tracking-[0.25em] text-cream/50"
-      >
+      <label htmlFor={id} className="text-xs uppercase tracking-[0.25em] text-cream/50">
         {label}
       </label>
       <input
@@ -195,7 +195,7 @@ function FieldInput({ id, label, type = "text", value, onChange, placeholder, re
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         required={required}
-        className="bg-black/40 border border-white/10 focus:border-tomato focus:outline-none rounded-xl px-4 py-3 text-cream placeholder:text-cream/30 transition-colors"
+        className="bg-black/40 border border-white/10 focus:border-green-brand focus:outline-none rounded-xl px-4 py-3 text-cream placeholder:text-cream/30 transition-colors"
       />
     </div>
   );

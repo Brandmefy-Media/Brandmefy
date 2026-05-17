@@ -19,15 +19,25 @@ export default function Footer() {
     <footer
       id="footer"
       data-testid="footer"
-      className="border-t border-white/10 pt-20 pb-10 relative overflow-hidden"
+      className="bg-[var(--brand-black)] border-t border-white/10 pt-16 md:pt-20 pb-10 relative overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
           <div className="lg:col-span-6">
-            <div className="font-serif-display text-2xl mb-4">
-              Brandmefy<span className="text-tomato">.</span>
+            <div className="inline-flex items-center gap-3 mb-3">
+              <span className="font-display-bold text-3xl text-green-brand inline-flex items-center justify-center w-12 h-12 rounded-lg bg-green-brand/15 leading-none">
+                B
+              </span>
+              <div className="flex flex-col">
+                <span className="font-display text-3xl text-cream leading-none" style={{ fontWeight: 500 }}>
+                  brandmefy
+                </span>
+                <span className="text-xs text-cream/50 uppercase tracking-[0.25em] mt-1">
+                  Beyond Marketing
+                </span>
+              </div>
             </div>
-            <p className="text-cream/60 max-w-md text-sm md:text-base leading-relaxed">
+            <p className="text-cream/60 max-w-md text-sm md:text-base leading-relaxed mt-6">
               A small studio building bold brands and websites worth bookmarking.
               No fluff, no fuss, just sharp creative work.
             </p>
@@ -45,7 +55,7 @@ export default function Footer() {
                   rel="noreferrer"
                   aria-label={label}
                   data-testid={`footer-social-${label.toLowerCase()}`}
-                  className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-cream/70 hover:text-tomato hover:border-tomato transition-colors"
+                  className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-cream/70 hover:text-green-brand hover:border-green-brand transition-colors"
                 >
                   <Icon size={16} />
                 </a>
@@ -63,7 +73,7 @@ export default function Footer() {
                   <button
                     data-testid={`footer-link-${n.id}`}
                     onClick={() => scrollTo(n.id)}
-                    className="text-cream/80 hover:text-tomato transition-colors"
+                    className="text-cream/80 hover:text-green-brand transition-colors text-left"
                   >
                     {n.label}
                   </button>
@@ -80,7 +90,7 @@ export default function Footer() {
               <li>
                 <a
                   href="mailto:brandmefymedia@gmail.com"
-                  className="hover:text-tomato transition-colors"
+                  className="hover:text-green-brand transition-colors break-all"
                 >
                   brandmefymedia@gmail.com
                 </a>
@@ -93,13 +103,14 @@ export default function Footer() {
 
         <div
           aria-hidden
-          className="font-serif-display text-[18vw] leading-none mt-20 text-outline-cream opacity-30 select-none whitespace-nowrap overflow-hidden"
+          className="font-display-bold uppercase mt-16 md:mt-20 text-outline-green opacity-40 select-none whitespace-nowrap overflow-hidden text-center"
+          style={{ fontSize: "clamp(80px, 22vw, 320px)", lineHeight: 0.85, letterSpacing: "-0.04em" }}
         >
-          Brandmefy.
+          BRANDMEFY
         </div>
 
-        <div className="mt-10 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between gap-4 text-xs text-cream/50">
-          <span>© {year} Brandmefy. All rights reserved.</span>
+        <div className="mt-8 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between gap-4 text-xs text-cream/50">
+          <span>© {year} brandmefy. Beyond Marketing. All rights reserved.</span>
           <span>Made with care, coffee and creativity.</span>
         </div>
       </div>
