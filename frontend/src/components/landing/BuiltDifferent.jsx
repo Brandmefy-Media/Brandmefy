@@ -43,7 +43,7 @@ export default function BuiltDifferent() {
             style={{ fontSize: "clamp(44px, 9vw, 144px)", lineHeight: 0.9 }}
           >
             Built different{" "}
-            <span className="text-emerald-brand">(in a good way)</span>
+            <span className="text-yellow-brand">(in a good way)</span>
           </h2>
         </div>
 
@@ -76,16 +76,16 @@ export default function BuiltDifferent() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="rounded-3xl border border-emerald-brand/30 p-6 md:p-10 relative overflow-hidden bg-[var(--bg-card)]"
+            className="rounded-3xl border border-pink-brand/30 p-6 md:p-10 relative overflow-hidden bg-[var(--bg-card)]"
           >
-            <div className="absolute -top-24 -right-24 w-72 h-72 bg-emerald-brand/15 blur-[100px] rounded-full" />
+            <div className="absolute -top-24 -right-24 w-72 h-72 bg-pink-brand/15 blur-[100px] rounded-full" />
             <h3 className="font-anton uppercase text-2xl md:text-3xl text-white mb-6 relative">
-              brandmefy <span className="text-emerald-brand">.</span>
+              brandmefy <span className="text-pink-brand">.</span>
             </h3>
             <ul className="space-y-4 relative">
               {US.map((item, i) => (
                 <li key={i} className="flex items-center gap-3 text-white">
-                  <span className="shrink-0 w-5 h-5 rounded-full bg-emerald-brand text-black flex items-center justify-center">
+                  <span className="shrink-0 w-5 h-5 rounded-full bg-pink-brand text-white flex items-center justify-center">
                     <Check size={12} strokeWidth={3} />
                   </span>
                   <span className="text-base md:text-lg">{item}</span>

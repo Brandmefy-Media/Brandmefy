@@ -37,9 +37,13 @@
         --text: #ffffff;
         --text-muted: rgba(255, 255, 255, 0.65);
         --text-soft: rgba(255, 255, 255, 0.45);
-        --emerald: #f5f1e6;
-        --emerald-bright: #fbf8ee;
-        --emerald-deep: #e0d9c4;
+        --emerald: #ffd60a;
+        --emerald-bright: #ffe14a;
+        --emerald-deep: #e6bf00;
+        --accent-pink: #ff4f9a;
+        --accent-blue: #4d8bff;
+        --accent-cream: #f5f1e6;
+        --accent-yellow: #ffd60a;
     }
 }
 
@@ -107,6 +111,55 @@
     .text-outline-emerald {
         color: transparent;
         -webkit-text-stroke: 1.5px var(--emerald);
+    }
+    .text-pink-brand {
+        color: var(--accent-pink);
+    }
+    .text-blue-brand {
+        color: var(--accent-blue);
+    }
+    .text-cream-brand {
+        color: var(--accent-cream);
+    }
+    .text-yellow-brand {
+        color: var(--accent-yellow);
+    }
+    .bg-pink-brand {
+        background-color: var(--accent-pink);
+    }
+    .bg-blue-brand {
+        background-color: var(--accent-blue);
+    }
+    .bg-cream-brand {
+        background-color: var(--accent-cream);
+    }
+    .bg-yellow-brand {
+        background-color: var(--accent-yellow);
+    }
+    .border-pink-brand {
+        border-color: var(--accent-pink);
+    }
+    .border-blue-brand {
+        border-color: var(--accent-blue);
+    }
+    .border-cream-brand {
+        border-color: var(--accent-cream);
+    }
+    .text-outline-pink {
+        color: transparent;
+        -webkit-text-stroke: 1.5px var(--accent-pink);
+    }
+    .text-outline-blue {
+        color: transparent;
+        -webkit-text-stroke: 1.5px var(--accent-blue);
+    }
+    .text-outline-yellow {
+        color: transparent;
+        -webkit-text-stroke: 1.5px var(--accent-yellow);
+    }
+    .text-outline-cream-brand {
+        color: transparent;
+        -webkit-text-stroke: 1.5px var(--accent-cream);
     }
     .grain {
         position: relative;
@@ -270,7 +323,23 @@
         padding: 16px 26px;
     }
     .sticker-emerald {
-        background: var(--emerald);
+        background: var(--accent-yellow);
+        color: #000;
+    }
+    .sticker-pink {
+        background: var(--accent-pink);
+        color: #fff;
+    }
+    .sticker-blue {
+        background: var(--accent-blue);
+        color: #fff;
+    }
+    .sticker-yellow {
+        background: var(--accent-yellow);
+        color: #000;
+    }
+    .sticker-cream {
+        background: var(--accent-cream);
         color: #000;
     }
 

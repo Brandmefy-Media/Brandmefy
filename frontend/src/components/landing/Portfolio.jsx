@@ -43,12 +43,17 @@ export default function Portfolio() {
             className="font-anton uppercase text-white tracking-[-0.025em]"
             style={{ fontSize: "clamp(44px, 9vw, 144px)", lineHeight: 0.9 }}
           >
-            Look what <span className="text-emerald-brand">we made</span>
+            Look what <span className="text-yellow-brand">we made</span>
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          {PORTFOLIO.map((p, i) => (
+          {PORTFOLIO.map((p, i) => {
+            const catColors = ["text-yellow-brand", "text-pink-brand", "text-blue-brand", "text-cream-brand"];
+            const btnColors = ["bg-yellow-brand text-black", "bg-pink-brand text-white", "bg-blue-brand text-white", "bg-cream-brand text-black"];
+            const cat = catColors[i % catColors.length];
+            const btn = btnColors[i % btnColors.length];
+            return (
             <motion.a
               key={i}
               href="#speak-to-us"
@@ -67,14 +72,14 @@ export default function Portfolio() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
               <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end">
-                <span className="text-xs uppercase tracking-[0.25em] text-emerald-brand mb-2">
+                <span className={`text-xs uppercase tracking-[0.25em] mb-2 ${cat}`}>
                   {p.category}
                 </span>
                 <div className="flex items-end justify-between gap-4">
                   <h3 className="font-anton uppercase text-2xl md:text-4xl tracking-tight text-white">
                     {p.title}
                   </h3>
-                  <span className="w-11 h-11 rounded-full bg-emerald-brand text-black flex items-center justify-center shrink-0 translate-y-2 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                  <span className={`w-11 h-11 rounded-full ${btn} flex items-center justify-center shrink-0 translate-y-2 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300`}>
                     <ArrowUpRight size={20} />
                   </span>
                 </div>
@@ -83,7 +88,8 @@ export default function Portfolio() {
                 </span>
               </div>
             </motion.a>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

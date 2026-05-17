@@ -9,6 +9,8 @@ const CARDS = [
     body: "We move at the speed of creativity and caffeine. Your deadlines will not see us coming.",
     image:
       "https://static.prod-images.emergentagent.com/jobs/d84a0ff5-244c-4fa5-ad25-45938c2831e0/images/03571c10910b5d001ae59c6aeb53ff86501c9e6a9ddf83ad79e164a99e7644f5.png",
+    accentClass: "text-yellow-brand",
+    bgClass: "bg-yellow-brand/15 border-yellow-brand/30",
   },
   {
     Icon: ReceiptText,
@@ -16,6 +18,8 @@ const CARDS = [
     body: "No hidden fees, no sneaky charges. Just honest scopes and work that earns the receipt.",
     image:
       "https://static.prod-images.emergentagent.com/jobs/d84a0ff5-244c-4fa5-ad25-45938c2831e0/images/8739963b0844604547c64fadd98e20399318e7c4c94ee7d846eb56946f9574c7.png",
+    accentClass: "text-pink-brand",
+    bgClass: "bg-pink-brand/15 border-pink-brand/30",
   },
   {
     Icon: Boxes,
@@ -23,6 +27,8 @@ const CARDS = [
     body: "Brand, design, websites, social, content. One team, one taste, one Slack channel.",
     image:
       "https://static.prod-images.emergentagent.com/jobs/d84a0ff5-244c-4fa5-ad25-45938c2831e0/images/9a442fdcfd2efda012b6a15b538e44c553fe72e5ff4b6e42ee83dc926065ed56.png",
+    accentClass: "text-blue-brand",
+    bgClass: "bg-blue-brand/15 border-blue-brand/30",
   },
 ];
 
@@ -51,7 +57,7 @@ export default function ValueProps() {
                 }}
                 className="card-surface p-8 md:p-10 flex flex-col items-center text-center gap-6 min-h-[380px]"
               >
-                <div className="w-full max-w-[200px] aspect-square rounded-full bg-white/5 border border-white/10 flex items-center justify-center floaty overflow-hidden">
+                <div className={`w-full max-w-[200px] aspect-square rounded-full bg-white/5 border ${card.bgClass.split(" ")[1]} flex items-center justify-center floaty overflow-hidden`}>
                   <img
                     src={card.image}
                     alt={card.title}
@@ -60,7 +66,7 @@ export default function ValueProps() {
                   />
                 </div>
                 <div className="flex flex-col items-center gap-3">
-                  <span className="text-emerald-brand">
+                  <span className={card.accentClass}>
                     <Icon size={20} />
                   </span>
                   <h3 className="font-anton uppercase text-2xl md:text-3xl tracking-tight">

@@ -20,7 +20,7 @@ export default function About() {
         >
           We started at a kitchen table with coffee, chaos and a shared love
           for bold ideas. Now we are a small team doing big things.{" "}
-          <span className="text-emerald-brand">
+          <span className="text-blue-brand">
             Branding, designing, creating
           </span>{" "}
           work that actually makes people feel something. No fluff, no fuss,

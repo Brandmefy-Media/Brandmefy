@@ -16,7 +16,7 @@ const NAV_LINKS = [
 function BrandmefyLogo() {
   return (
     <span className="inline-flex items-center gap-2.5">
-      <span className="font-anton text-emerald-brand inline-flex items-center justify-center w-9 h-9 rounded-lg bg-emerald-brand/15 border border-emerald-brand/30 leading-none text-lg pt-0.5">
+      <span className="font-anton text-yellow-brand inline-flex items-center justify-center w-9 h-9 rounded-lg bg-yellow-brand/15 border border-yellow-brand/30 leading-none text-lg pt-0.5">
         B
       </span>
       <span className="flex flex-col leading-none">
@@ -128,7 +128,7 @@ export default function Navbar() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 + i * 0.05 }}
                     onClick={() => scrollTo(link.id)}
-                    className="font-anton uppercase text-white hover:text-emerald-brand transition-colors duration-300 tracking-tight leading-none"
+                    className="font-anton uppercase text-white hover:text-yellow-brand transition-colors duration-300 tracking-tight leading-none"
                     style={{ fontSize: "clamp(40px, 8vw, 96px)" }}
                   >
                     {link.label}

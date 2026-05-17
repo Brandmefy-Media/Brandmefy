@@ -70,7 +70,7 @@ export default function Testimonials() {
             style={{ fontSize: "clamp(44px, 9vw, 144px)", lineHeight: 0.9 }}
           >
             Clients talk{" "}
-            <span className="text-emerald-brand">and we blush</span>
+            <span className="text-pink-brand">and we blush</span>
           </h2>
         </div>
       </div>
@@ -82,7 +82,7 @@ export default function Testimonials() {
               key={i}
               className="card-surface w-[320px] md:w-[440px] shrink-0 p-7 md:p-8 flex flex-col gap-5"
             >
-              <Quote size={22} className="text-emerald-brand" />
+              <Quote size={22} className="text-pink-brand" />
               <p className="text-white/85 text-sm md:text-base leading-relaxed">
                 {t.quote}
               </p>
@@ -112,7 +112,7 @@ export default function Testimonials() {
             />
             <div className="absolute inset-0 bg-black/40" />
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-              <span className="w-16 h-16 rounded-full bg-emerald-brand text-black flex items-center justify-center group-hover:scale-110 transition-transform">
+              <span className="w-16 h-16 rounded-full bg-blue-brand text-white flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Play size={28} fill="currentColor" />
               </span>
             </div>

@@ -44,12 +44,15 @@ export default function Team() {
             style={{ fontSize: "clamp(44px, 9vw, 144px)", lineHeight: 0.9 }}
           >
             The humans behind{" "}
-            <span className="text-emerald-brand">the work</span>
+            <span className="text-pink-brand">the work</span>
           </h2>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {TEAM.map((m, i) => (
+          {TEAM.map((m, i) => {
+            const accents = ["bg-yellow-brand text-black", "bg-pink-brand text-white", "bg-blue-brand text-white"];
+            const acc = accents[i % accents.length];
+            return (
             <motion.div
               key={i}
               data-testid={`team-card-${i}`}
@@ -67,7 +70,7 @@ export default function Team() {
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                   style={{ filter: "grayscale(0.15) brightness(0.95)" }}
                 />
-                <span className="absolute top-3 left-3 text-[10px] uppercase tracking-[0.25em] bg-emerald-brand text-black px-3 py-1.5 rounded-full font-medium">
+                <span className={`absolute top-3 left-3 text-[10px] uppercase tracking-[0.25em] px-3 py-1.5 rounded-full font-medium ${acc}`}>
                   {m.nickname}
                 </span>
               </div>
@@ -85,7 +88,7 @@ export default function Team() {
                     href="https://x.com"
                     target="_blank"
                     rel="noreferrer"
-                    className="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center text-white/70 hover:border-emerald-brand hover:text-emerald-brand transition-colors"
+                    className="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center text-white/70 hover:border-pink-brand hover:text-pink-brand transition-colors"
                     aria-label="Twitter"
                   >
                     <Twitter size={14} />
@@ -95,7 +98,7 @@ export default function Team() {
                     href="https://linkedin.com"
                     target="_blank"
                     rel="noreferrer"
-                    className="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center text-white/70 hover:border-emerald-brand hover:text-emerald-brand transition-colors"
+                    className="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center text-white/70 hover:border-blue-brand hover:text-blue-brand transition-colors"
                     aria-label="LinkedIn"
                   >
                     <Linkedin size={14} />
@@ -103,7 +106,8 @@ export default function Team() {
                 </div>
               </div>
             </motion.div>
-          ))}
+            );
+          })}
 
           <motion.a
             href="#speak-to-us"
@@ -112,7 +116,7 @@ export default function Team() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="rounded-[20px] overflow-hidden flex flex-col justify-between p-6 relative bg-emerald-brand text-black"
+            className="rounded-[20px] overflow-hidden flex flex-col justify-between p-6 relative bg-pink-brand text-white"
           >
             <div>
               <span className="font-anton text-5xl block leading-none">

@@ -44,13 +44,20 @@ export default function Process() {
             style={{ fontSize: "clamp(44px, 9vw, 144px)", lineHeight: 0.9 }}
           >
             Our not-so-secret{" "}
-            <span className="text-emerald-brand">sauce</span>
+            <span className="text-blue-brand">sauce</span>
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8">
           {STEPS.map((s, i) => {
             const { Icon } = s;
+            const palette = [
+              { txt: "text-yellow-brand", bg: "bg-yellow-brand/15 border-yellow-brand/30" },
+              { txt: "text-pink-brand", bg: "bg-pink-brand/15 border-pink-brand/30" },
+              { txt: "text-blue-brand", bg: "bg-blue-brand/15 border-blue-brand/30" },
+              { txt: "text-cream-brand", bg: "bg-white/10 border-white/20" },
+            ];
+            const c = palette[i % palette.length];
             return (
               <motion.div
                 key={i}
@@ -62,10 +69,10 @@ export default function Process() {
                 className="card-surface p-6 md:p-10 flex gap-5 md:gap-8 items-start"
               >
                 <div className="shrink-0 flex flex-col items-center gap-3">
-                  <span className="font-anton text-4xl md:text-6xl text-emerald-brand">
+                  <span className={`font-anton text-4xl md:text-6xl ${c.txt}`}>
                     {s.n}
                   </span>
-                  <span className="w-12 h-12 rounded-full bg-emerald-brand/15 border border-emerald-brand/30 flex items-center justify-center text-emerald-brand">
+                  <span className={`w-12 h-12 rounded-full border flex items-center justify-center ${c.bg} ${c.txt}`}>
                     <Icon size={20} />
                   </span>
                 </div>

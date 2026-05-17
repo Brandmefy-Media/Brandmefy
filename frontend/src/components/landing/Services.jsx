@@ -15,6 +15,9 @@ const SERVICES = [
       "Content Marketing",
     ],
     body: "Your brand is more than a logo. It is your personality, your story, your vibe. We craft everything from marks to full brand systems that speak in your voice.",
+    accent: "text-yellow-brand",
+    bgAccent: "bg-yellow-brand/15 text-yellow-brand border-yellow-brand/30",
+    outline: "text-outline-yellow",
   },
   {
     id: "web",
@@ -28,6 +31,9 @@ const SERVICES = [
       "Landing Pages",
     ],
     body: "Your website is your digital home. We design and build sites that are equal parts beautiful and brainy, with clean code and buttery interfaces.",
+    accent: "text-pink-brand",
+    bgAccent: "bg-pink-brand/15 text-pink-brand border-pink-brand/30",
+    outline: "text-outline-pink",
   },
   {
     id: "content",
@@ -41,6 +47,9 @@ const SERVICES = [
       "Scriptwriting",
     ],
     body: "Scroll-stopping content that does not just look pretty, it connects. From snappy headlines to slick videos, we make your story shine.",
+    accent: "text-blue-brand",
+    bgAccent: "bg-blue-brand/15 text-blue-brand border-blue-brand/30",
+    outline: "text-outline-blue",
   },
   {
     id: "marketing",
@@ -54,6 +63,9 @@ const SERVICES = [
       "Influencer",
     ],
     body: "Data, creativity and a bit of digital magic. We make sure your message lands in the right feed at the right moment.",
+    accent: "text-cream-brand",
+    bgAccent: "bg-white/10 text-cream-brand border-white/20",
+    outline: "text-outline-cream-brand",
   },
 ];
 
@@ -75,7 +87,7 @@ export default function Services() {
             style={{ fontSize: "clamp(44px, 9vw, 144px)", lineHeight: 0.9 }}
           >
             What we do<br />
-            <span className="text-outline-emerald">
+            <span className="text-outline-pink">
               (and do really well)
             </span>
           </h2>
@@ -110,7 +122,7 @@ export default function Services() {
                     size={28}
                     className={`mt-2 shrink-0 transition-transform duration-300 ${
                       active === idx
-                        ? "rotate-0 text-emerald-brand"
+                        ? `rotate-0 ${s.accent}`
                         : "-rotate-45"
                     }`}
                   />
@@ -162,7 +174,7 @@ export default function Services() {
                   className="card-surface p-6 md:p-10 min-h-[440px] flex flex-col justify-between"
                 >
                   <div>
-                    <span className="inline-block px-3 py-1 text-[10px] uppercase tracking-[0.25em] rounded-full mb-6 bg-emerald-brand/15 text-emerald-brand border border-emerald-brand/30">
+                    <span className={`inline-block px-3 py-1 text-[10px] uppercase tracking-[0.25em] rounded-full mb-6 border ${current.bgAccent}`}>
                       {current.id}
                     </span>
                     <h4
@@ -179,7 +191,7 @@ export default function Services() {
                   <div className="mt-8">
                     <div className="rounded-2xl aspect-[5/4] w-full overflow-hidden relative bg-bg-3 flex items-center justify-center border border-white/10">
                       <span
-                        className="font-anton uppercase text-outline-emerald"
+                        className={`font-anton uppercase ${current.outline}`}
                         style={{
                           fontSize: "clamp(80px, 14vw, 220px)",
                           lineHeight: 1,

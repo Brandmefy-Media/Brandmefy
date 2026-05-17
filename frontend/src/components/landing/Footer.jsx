@@ -59,7 +59,9 @@ export default function Footer() {
                   href: "mailto:brandmefymedia@gmail.com",
                   label: "Email",
                 },
-              ].map(({ Icon, href, label }, i) => (
+              ].map(({ Icon, href, label }, i) => {
+                const hoverColors = ["hover:text-pink-brand hover:border-pink-brand", "hover:text-yellow-brand hover:border-yellow-brand", "hover:text-blue-brand hover:border-blue-brand", "hover:text-cream-brand hover:border-cream-brand"];
+                return (
                 <a
                   key={i}
                   href={href}
@@ -67,11 +69,12 @@ export default function Footer() {
                   rel="noreferrer"
                   aria-label={label}
                   data-testid={`footer-social-${label.toLowerCase()}`}
-                  className="w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-white/70 hover:text-emerald-brand hover:border-emerald-brand transition-colors"
+                  className={`w-10 h-10 rounded-full border border-white/15 flex items-center justify-center text-white/70 transition-colors ${hoverColors[i]}`}
                 >
                   <Icon size={16} />
                 </a>
-              ))}
+                );
+              })}
             </div>
           </div>
 
@@ -85,7 +88,7 @@ export default function Footer() {
                   <button
                     data-testid={`footer-link-${n.id}`}
                     onClick={() => scrollTo(n.id)}
-                    className="text-white/80 hover:text-emerald-brand transition-colors text-left"
+                    className="text-white/80 hover:text-yellow-brand transition-colors text-left"
                   >
                     {n.label}
                   </button>
@@ -102,7 +105,7 @@ export default function Footer() {
               <li>
                 <a
                   href="mailto:brandmefymedia@gmail.com"
-                  className="hover:text-emerald-brand transition-colors break-all"
+                  className="hover:text-pink-brand transition-colors break-all"
                 >
                   brandmefymedia@gmail.com
                 </a>
@@ -115,7 +118,7 @@ export default function Footer() {
 
         <div
           aria-hidden
-          className="font-anton uppercase mt-16 md:mt-20 text-outline-emerald opacity-50 select-none whitespace-nowrap overflow-hidden text-center"
+          className="font-anton uppercase mt-16 md:mt-20 text-outline-yellow opacity-50 select-none whitespace-nowrap overflow-hidden text-center"
           style={{
             fontSize: "clamp(80px, 22vw, 320px)",
             lineHeight: 0.85,

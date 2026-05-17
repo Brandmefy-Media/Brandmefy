@@ -26,7 +26,7 @@ export default function LogoMarquee() {
             whileInView={{ opacity: 1, scale: 1, rotate: -8 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, type: "spring" }}
-            className="sticker sticker-burst sticker-emerald mb-8"
+            className="sticker sticker-burst sticker-pink mb-8"
           >
             Brands
           </motion.span>
@@ -42,22 +42,26 @@ export default function LogoMarquee() {
             }}
           >
             We built the<br />
-            rocket, <span className="text-outline-emerald">they flew</span>
+            rocket, <span className="text-outline-yellow">they flew</span>
           </motion.h2>
         </div>
       </div>
 
       <div className="marquee py-6 border-y border-white/5">
         <div className="marquee-track">
-          {[...LOGOS, ...LOGOS].map((logo, i) => (
-            <span
-              key={i}
-              className="font-anton text-4xl md:text-6xl text-white/30 hover:text-white transition-colors duration-300 whitespace-nowrap uppercase tracking-tight inline-flex items-center gap-4"
-            >
-              {logo}
-              <span className="inline-block w-3 h-3 rounded-full bg-emerald-brand" />
-            </span>
-          ))}
+          {[...LOGOS, ...LOGOS].map((logo, i) => {
+            const colors = ["bg-yellow-brand", "bg-pink-brand", "bg-blue-brand", "bg-cream-brand"];
+            const dotColor = colors[i % colors.length];
+            return (
+              <span
+                key={i}
+                className="font-anton text-4xl md:text-6xl text-white/30 hover:text-white transition-colors duration-300 whitespace-nowrap uppercase tracking-tight inline-flex items-center gap-4"
+              >
+                {logo}
+                <span className={`inline-block w-3 h-3 rounded-full ${dotColor}`} />
+              </span>
+            );
+          })}
         </div>
       </div>
     </section>

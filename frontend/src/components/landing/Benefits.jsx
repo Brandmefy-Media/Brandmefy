@@ -65,13 +65,20 @@ export default function Benefits() {
             className="font-anton uppercase text-white tracking-[-0.025em]"
             style={{ fontSize: "clamp(44px, 9vw, 144px)", lineHeight: 0.9 }}
           >
-            Why we are <span className="text-emerald-brand">the best</span>
+            Why we are <span className="text-pink-brand">the best</span>
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-5">
           {BENEFITS.map((b, i) => {
             const Icon = b.icon;
+            const palette = [
+              { color: "text-yellow-brand", bg: "bg-yellow-brand/15 border-yellow-brand/30" },
+              { color: "text-pink-brand", bg: "bg-pink-brand/15 border-pink-brand/30" },
+              { color: "text-blue-brand", bg: "bg-blue-brand/15 border-blue-brand/30" },
+              { color: "text-cream-brand", bg: "bg-white/10 border-white/20" },
+            ];
+            const c = palette[i % palette.length];
             return (
               <motion.div
                 key={i}
@@ -82,7 +89,7 @@ export default function Benefits() {
                 transition={{ duration: 0.6, delay: (i % 4) * 0.05 }}
                 className={`card-surface p-6 md:p-8 flex flex-col gap-4 min-h-[210px] ${b.span ?? ""}`}
               >
-                <div className="w-11 h-11 rounded-xl bg-emerald-brand/15 border border-emerald-brand/30 flex items-center justify-center text-emerald-brand">
+                <div className={`w-11 h-11 rounded-xl border flex items-center justify-center ${c.bg} ${c.color}`}>
                   <Icon size={20} />
                 </div>
                 <div>

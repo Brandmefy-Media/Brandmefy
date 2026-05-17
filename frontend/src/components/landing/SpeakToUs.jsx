@@ -48,7 +48,11 @@ export default function SpeakToUs() {
     >
       <div
         aria-hidden
-        className="absolute -top-32 right-0 w-[520px] h-[520px] rounded-full bg-emerald-brand/10 blur-[140px]"
+        className="absolute -top-32 right-0 w-[520px] h-[520px] rounded-full bg-yellow-brand/10 blur-[140px]"
+      />
+      <div
+        aria-hidden
+        className="absolute -bottom-32 left-0 w-[420px] h-[420px] rounded-full bg-pink-brand/10 blur-[140px]"
       />
       <div className="max-w-7xl mx-auto px-4 md:px-6 relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
@@ -65,7 +69,7 @@ export default function SpeakToUs() {
               style={{ fontSize: "clamp(44px, 7vw, 104px)", lineHeight: 0.95 }}
             >
               Let us build something{" "}
-              <span className="text-emerald-brand">great</span> together
+              <span className="text-yellow-brand">great</span> together
             </h2>
             <p className="text-white/65 mt-6 max-w-md text-base md:text-lg">
               No hidden fees, no copy-paste pitches. Tell us about your project
@@ -81,7 +85,7 @@ export default function SpeakToUs() {
                 <a
                   data-testid="speak-email-link"
                   href="mailto:brandmefymedia@gmail.com"
-                  className="text-white hover:text-emerald-brand transition-colors break-all"
+                  className="text-white hover:text-yellow-brand transition-colors break-all"
                 >
                   brandmefymedia@gmail.com
                 </a>
@@ -150,7 +154,7 @@ export default function SpeakToUs() {
                 value={form.message}
                 onChange={(e) => setField("message", e.target.value)}
                 placeholder="A few lines about goals, timeline and what you have already tried."
-                className="bg-black/40 border border-white/10 focus:border-emerald-brand focus:outline-none rounded-xl px-4 py-3 text-white placeholder:text-white/30 resize-none transition-colors"
+                className="bg-black/40 border border-white/10 focus:border-yellow-brand focus:outline-none rounded-xl px-4 py-3 text-white placeholder:text-white/30 resize-none transition-colors"
                 required
               />
             </div>
@@ -208,7 +212,7 @@ function FieldInput({
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         required={required}
-        className="bg-black/40 border border-white/10 focus:border-emerald-brand focus:outline-none rounded-xl px-4 py-3 text-white placeholder:text-white/30 transition-colors"
+        className="bg-black/40 border border-white/10 focus:border-yellow-brand focus:outline-none rounded-xl px-4 py-3 text-white placeholder:text-white/30 transition-colors"
       />
     </div>
   );

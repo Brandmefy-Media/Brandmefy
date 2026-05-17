@@ -2,9 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 
-const HERO_BG =
-  "https://static.prod-images.emergentagent.com/jobs/d84a0ff5-244c-4fa5-ad25-45938c2831e0/images/908ca9938d6ef392af18eea83f62ccff00a7ac29af1485a3bac72eec36ff340a.png";
-
 export default function Hero() {
   const scrollNext = () =>
     document
@@ -15,15 +12,22 @@ export default function Hero() {
     <section
       id="hero"
       data-testid="hero-section"
-      className="relative pt-32 md:pt-40 pb-0 overflow-hidden grain bg-[var(--bg-0)]"
+      className="relative pt-32 md:pt-40 pb-16 md:pb-24 overflow-hidden grain bg-[var(--bg-0)]"
     >
       <div
         aria-hidden
-        className="absolute -top-40 left-1/2 -translate-x-1/2 w-[720px] h-[720px] rounded-full bg-emerald-brand/10 blur-[160px] pointer-events-none"
+        className="absolute -top-40 left-1/2 -translate-x-1/2 w-[720px] h-[720px] rounded-full bg-yellow-brand/10 blur-[160px] pointer-events-none"
+      />
+      <div
+        aria-hidden
+        className="absolute top-1/3 -left-32 w-[420px] h-[420px] rounded-full bg-pink-brand/10 blur-[140px] pointer-events-none"
+      />
+      <div
+        aria-hidden
+        className="absolute bottom-0 -right-32 w-[420px] h-[420px] rounded-full bg-blue-brand/10 blur-[140px] pointer-events-none"
       />
 
       <div className="relative max-w-[1400px] mx-auto px-4 md:px-6 flex flex-col items-center text-center">
-        {/* BRANDMEFY massive display with stickers */}
         <div className="relative w-full flex justify-center">
           <motion.h1
             initial={{ opacity: 0, scale: 0.92, y: 30 }}
@@ -44,7 +48,7 @@ export default function Hero() {
             style={{ "--rot": "-10deg" }}
           >
             <span
-              className="sticker sticker-flower floaty"
+              className="sticker sticker-flower sticker-pink floaty"
               style={{ transform: "rotate(-10deg)" }}
             >
               Timeless
@@ -59,7 +63,7 @@ export default function Hero() {
             style={{ "--rot": "8deg" }}
           >
             <span
-              className="sticker sticker-flower floaty"
+              className="sticker sticker-flower sticker-blue floaty"
               style={{
                 transform: "rotate(8deg)",
                 animationDelay: "0.7s",
@@ -77,7 +81,7 @@ export default function Hero() {
             style={{ "--rot": "-5deg" }}
           >
             <span
-              className="sticker sticker-burst sticker-emerald floaty"
+              className="sticker sticker-burst sticker-yellow floaty"
               style={{
                 transform: "rotate(-5deg)",
                 animationDelay: "1.4s",
@@ -99,16 +103,16 @@ export default function Hero() {
           }}
         >
           Your brand deserves to be{" "}
-          <span className="text-emerald-brand">Seen</span>,{" "}
-          <span className="italic">Heard</span>, and{" "}
-          <span className="text-outline-white">Remembered</span>.
+          <span className="text-yellow-brand">Seen</span>,{" "}
+          <span className="italic text-pink-brand">Heard</span>, and{" "}
+          <span className="text-outline-blue">Remembered</span>.
         </motion.h2>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.7 }}
-          className="mt-6 text-white/65 max-w-xl text-base md:text-lg px-2"
+          className="mt-6 text-white/70 max-w-xl text-base md:text-lg px-2"
         >
           brandmefy is a small, sharp studio building bold identities, websites
           and campaigns for brands that want to feel like the room they walk
@@ -119,7 +123,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.85 }}
-          className="mt-8 flex flex-wrap items-center justify-center gap-3 md:gap-4"
+          className="mt-10 flex flex-wrap items-center justify-center gap-3 md:gap-4"
         >
           <button
             data-testid="hero-cta-primary"
@@ -145,40 +149,31 @@ export default function Hero() {
           </button>
         </motion.div>
 
-        {/* Circular hero image with corrugated edge framing */}
+        {/* Color chip strip - replaces circle */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.85, y: 60 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-16 md:mt-24 w-full max-w-[640px] aspect-square rounded-full overflow-hidden relative border border-white/10"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1 }}
+          className="mt-16 md:mt-20 flex items-center gap-6 md:gap-10 text-xs uppercase tracking-[0.3em] text-white/40"
         >
-          <img
-            src={HERO_BG}
-            alt="brandmefy creative work"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
-          <div className="absolute bottom-6 left-0 right-0 flex justify-center">
-            <span className="font-hand text-white text-2xl md:text-3xl">
-              beyond marketing
-            </span>
-          </div>
-          <span className="spin-slow absolute top-4 right-4 w-16 h-16 rounded-full border border-white/30 flex items-center justify-center text-[10px] uppercase tracking-[0.3em] text-white/70">
-            <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full">
-              <defs>
-                <path id="circ" d="M50,50 m-36,0 a36,36 0 1,1 72,0 a36,36 0 1,1 -72,0" />
-              </defs>
-              <text fill="white" fontSize="9" fontFamily="Anton">
-                <textPath href="#circ">brandmefy · beyond marketing · </textPath>
-              </text>
-            </svg>
+          <span className="flex items-center gap-2">
+            <span className="w-3 h-3 rounded-full bg-yellow-brand" /> Bold
+          </span>
+          <span className="flex items-center gap-2">
+            <span className="w-3 h-3 rounded-full bg-pink-brand" /> Playful
+          </span>
+          <span className="flex items-center gap-2">
+            <span className="w-3 h-3 rounded-full bg-blue-brand" /> Sharp
+          </span>
+          <span className="hidden md:flex items-center gap-2">
+            <span className="w-3 h-3 rounded-full bg-cream-brand" /> Considered
           </span>
         </motion.div>
 
         <button
           data-testid="hero-scroll-down"
           onClick={scrollNext}
-          className="mt-10 mb-10 inline-flex items-center gap-2 text-xs text-white/50 hover:text-white transition-colors"
+          className="mt-12 inline-flex items-center gap-2 text-xs text-white/50 hover:text-white transition-colors"
         >
           <ArrowDown size={14} /> Scroll
         </button>

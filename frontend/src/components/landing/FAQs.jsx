@@ -58,7 +58,7 @@ export default function FAQs() {
               style={{ fontSize: "clamp(44px, 7vw, 104px)", lineHeight: 0.95 }}
             >
               You ask,<br />
-              <span className="text-emerald-brand">we answer</span>
+              <span className="text-yellow-brand">we answer</span>
             </motion.h2>
             <p className="text-white/60 mt-6 max-w-sm">
               Still curious? Drop us a note and we will reply with the real
@@ -75,7 +75,7 @@ export default function FAQs() {
                   data-testid={`faq-item-${i}`}
                   className="border-white/10"
                 >
-                  <AccordionTrigger className="text-left font-anton uppercase text-lg md:text-2xl tracking-tight py-6 hover:no-underline hover:text-emerald-brand">
+                  <AccordionTrigger className="text-left font-anton uppercase text-lg md:text-2xl tracking-tight py-6 hover:no-underline hover:text-yellow-brand">
                     {item.q}
                   </AccordionTrigger>
                   <AccordionContent className="text-white/65 text-base leading-relaxed pb-6">
