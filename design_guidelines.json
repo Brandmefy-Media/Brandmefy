@@ -1,0 +1,142 @@
+{
+  "brand_name": "Brandmefy",
+  "theme": {
+    "archetype": "High-Contrast Dark Theme (Playful Editorial)",
+    "description": "Black dominant background with warm cream text and tomato red highlights. Combines the structure of Swiss brutalism with the playful and high-end editorial vibe of a modern creative agency."
+  },
+  "colors": {
+    "background": "#050505",
+    "surface": "#121212",
+    "surface_alt": "#1A1A1A",
+    "primary": "#FF4D4D",
+    "primary_hover": "#E53935",
+    "text_main": "#F4F0E6",
+    "text_muted": "#A1A1AA",
+    "border": "#2A2A2A"
+  },
+  "typography": {
+    "heading_font": "Fraunces, serif",
+    "body_font": "Outfit, sans-serif",
+    "rules": "NO em dashes anywhere. Use commas or colons. Headings must have tight letter spacing. Body text should be clean and readable."
+  },
+  "media": {
+    "hero_bg": "https://static.prod-images.emergentagent.com/jobs/d84a0ff5-244c-4fa5-ad25-45938c2831e0/images/908ca9938d6ef392af18eea83f62ccff00a7ac29af1485a3bac72eec36ff340a.png",
+    "value_props": [
+      "https://static.prod-images.emergentagent.com/jobs/d84a0ff5-244c-4fa5-ad25-45938c2831e0/images/03571c10910b5d001ae59c6aeb53ff86501c9e6a9ddf83ad79e164a99e7644f5.png",
+      "https://static.prod-images.emergentagent.com/jobs/d84a0ff5-244c-4fa5-ad25-45938c2831e0/images/8739963b0844604547c64fadd98e20399318e7c4c94ee7d846eb56946f9574c7.png",
+      "https://static.prod-images.emergentagent.com/jobs/d84a0ff5-244c-4fa5-ad25-45938c2831e0/images/9a442fdcfd2efda012b6a15b538e44c553fe72e5ff4b6e42ee83dc926065ed56.png"
+    ],
+    "services_fallback": "https://static.prod-images.emergentagent.com/jobs/d84a0ff5-244c-4fa5-ad25-45938c2831e0/images/b8158ec4abce342fd075e36f6f337b1c33ef1e144bb8fa72c8a128f4f23ec538.png",
+    "portfolio": [
+      "https://static.prod-images.emergentagent.com/jobs/d84a0ff5-244c-4fa5-ad25-45938c2831e0/images/ecdd5a3b9075509374a8850655861714c93f962c8cc02f51e8872d3a29be34c7.png",
+      "https://static.prod-images.emergentagent.com/jobs/d84a0ff5-244c-4fa5-ad25-45938c2831e0/images/ae3d8b8a9f063226240bd8a163a8d9788a888f6b844faf1bc7fc6a76d2775ccb.png",
+      "https://static.prod-images.emergentagent.com/jobs/d84a0ff5-244c-4fa5-ad25-45938c2831e0/images/1f5ba9546ca40ed09d578557d026848e8e3802021d3cf9a2fee399d293f81508.png",
+      "https://static.prod-images.emergentagent.com/jobs/d84a0ff5-244c-4fa5-ad25-45938c2831e0/images/b4ef1b573f812cd3500b042a548e64bc981b6226d0bf7eeaeae6626585d226d4.png"
+    ],
+    "video_testimonial_thumb": "https://static.prod-images.emergentagent.com/jobs/d84a0ff5-244c-4fa5-ad25-45938c2831e0/images/e0bed274c609f92bc6cacc356c7cd03e3e8be3d33e01c985603734fc2ea8bb1c.png",
+    "team": [
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHwyfHx5b3VuZyUyMHByb2Zlc3Npb25hbCUyMGhlYWRzaG90fGVufDB8fHx8MTc3OTAxNTk1OXww&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHwzfHx5b3VuZyUyMHByb2Zlc3Npb25hbCUyMGhlYWRzaG90fGVufDB8fHx8MTc3OTAxNTk1OXww&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1699899657680-421c2c2d5064?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHwxfHx5b3VuZyUyMHByb2Zlc3Npb25hbCUyMGhlYWRzaG90fGVufDB8fHx8MTc3OTAxNTk1OXww&ixlib=rb-4.1.0&q=85"
+    ],
+    "benefit_shapes": [
+      "https://images.unsplash.com/photo-1622737133809-d95047b9e673?crop=entropy&cs=srgb&fm=jpg",
+      "https://images.unsplash.com/photo-1710438399422-2fca27686bcd?crop=entropy&cs=srgb&fm=jpg",
+      "https://images.unsplash.com/photo-1678366633407-7f49da199a42?crop=entropy&cs=srgb&fm=jpg"
+    ]
+  },
+  "layout_sections": [
+    {
+      "id": "navbar",
+      "type": "header",
+      "details": "Sticky header with glassmorphism over dark background. Left: Logo 'Brandmefy' (Capital B). Right: Links and Contact CTA. Must have smooth scroll to sections."
+    },
+    {
+      "id": "hero",
+      "type": "hero",
+      "details": "Massive typography. Heading: 'Your brand deserves to be Seen, Heard, and Remembered'. Underneath, an infinite marquee showing words like 'Creative', 'Timeless', 'Edgy' in large outline text. Use hero_bg image as a subtle 20% opacity background texture."
+    },
+    {
+      "id": "value_props",
+      "type": "grid",
+      "details": "3 cards in a row. 1: 'Fast and Reliable Delivery' with value_prop rocket image. 2: 'Clear, No-Surprise Pricing' with value_prop price image. 3: 'Everything, Under One Roof' with value_prop roof image. Minimalist dark cards."
+    },
+    {
+      "id": "logo_marquee",
+      "type": "marquee",
+      "details": "Text 'We built the rocket, they flew' above a continuous marquee of text logos: LunarLab, VibeCraft, Sunbeam, NeonVibe, HorizonHue."
+    },
+    {
+      "id": "stats",
+      "type": "counters",
+      "details": "4 huge numbers counting up. Brands launched (120+), Projects Delivered (350+), Moodboards created (500+), Happy clients (99%)."
+    },
+    {
+      "id": "services",
+      "type": "interactive_list",
+      "details": "Title: 'What we do (and do really well)'. Left column: Accordion or hover-list of 4 services (Branding & Identity, Web Design and Development, Content Creation, Digital Marketing). Right column: Image carousel/fade matching the hovered service. Use services_fallback image."
+    },
+    {
+      "id": "benefits",
+      "type": "bento_grid",
+      "details": "Title: 'Why we are the best!'. 7 cards. 1: Creative Sparks. 2: Design That Delivers. 3: Adaptable & Flexible. 4: Human-Centered Approach. 5: Global Vision, Local Focus. 6: Ideas You Didn't See Coming. 7: Every Detail Matters. Use Lucide icons + subtle background shapes from benefit_shapes."
+    },
+    {
+      "id": "portfolio",
+      "type": "grid",
+      "details": "Title: 'Look what we made!'. 4 large cards displaying the 4 portfolio images (Bold Brew, FlexFit, SpeedShip, Bloomberry). Overlay text on hover 'View Case Study'."
+    },
+    {
+      "id": "process",
+      "type": "timeline",
+      "details": "Title: 'Our not-so secret sauce'. 4 steps. 1: Kickoff & Coffee Chats. 2: Strategy & Concepts. 3: Design & Refine. 4: Launch & Celebrate."
+    },
+    {
+      "id": "built_different",
+      "type": "comparison",
+      "details": "Two columns. Left: 'Other Agencies' (faded gray text: Generic Solutions, Hidden Costs, Boring Creativity). Right: 'Brandmefy' (bright cream text with Tomato Red checkmarks: Personalized Plans, Transparent Pricing, Bold Ideas)."
+    },
+    {
+      "id": "testimonials",
+      "type": "carousel",
+      "details": "Title: 'Clients talk & we blush'. Mix of text testimonial cards and video thumbnail cards (use video_testimonial_thumb)."
+    },
+    {
+      "id": "about",
+      "type": "narrative",
+      "details": "Big bold text block: 'We started at a kitchen table with coffee, chaos, and a shared love for bold ideas. Now we are a small team doing big things... No fluff, no fuss, just fun, friendly, scroll-stopping creativity.'"
+    },
+    {
+      "id": "team",
+      "type": "grid",
+      "details": "3 team member cards using the team images, plus 1 card saying 'Maybe You / Cause we are hiring' with a link to apply."
+    },
+    {
+      "id": "faqs",
+      "type": "accordion",
+      "details": "Title: 'You ask, we answer.'. Standard 5-6 question accordion about timeline, revisions, etc."
+    },
+    {
+      "id": "speak_to_us",
+      "type": "contact_form",
+      "details": "REPLACES PRICING SECTION. Title: 'Speak to Us'. Subtitle: 'Let us build something great together. No hidden fees, just honest work.'. Form fields: Name, Email, Company, Message. Submit button triggers POST to /api/contact which sends Resend email to brandmefymedia@gmail.com."
+    },
+    {
+      "id": "footer",
+      "type": "footer",
+      "details": "Massive Brandmefy logo. Grid of nav links. Social icons. Copyright 2026."
+    }
+  ],
+  "motion_rules": {
+    "scroll_reveal": "All major sections should fade in and slide up slightly on scroll using framer-motion.",
+    "hover_effects": "Cards should slightly lift (-translate-y-1) and increase border brightness on hover.",
+    "button_interactions": "CTAs should have scale effect on tap."
+  },
+  "testing": "Ensure EVERY interactive element has a data-testid attribute.",
+  "backend_integration": {
+    "endpoint": "/api/contact",
+    "method": "POST",
+    "payload": { "name": "string", "email": "string", "company": "string", "message": "string" },
+    "action": "Send email via Resend to brandmefymedia@gmail.com"
+  }
+}
