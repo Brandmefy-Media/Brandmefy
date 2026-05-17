@@ -16,7 +16,7 @@ function App() {
           style: {
             background: "#0f0f0f",
             color: "#ffffff",
-            border: "1px solid rgba(16, 185, 129, 0.3)",
+            border: "1px solid rgba(245, 241, 230, 0.3)",
             fontFamily: "Inter, sans-serif",
           },
         }}
