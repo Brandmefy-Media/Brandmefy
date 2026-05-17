@@ -1,48 +1,39 @@
 # Brandmefy Landing Page — PRD
 
 ## Original Problem Statement
-Build a landing page replicating https://optimistic-methodologies-359017.framer.app/ (Agenius Framer template) for an agency called "Brandmefy" (capital B). Remove the Pricing section; replace with a professional "Speak to us" contact section. Black-dominant theme with warm cream + tomato red accents. No em dashes. Same typography vibe (serif display + clean sans).
+Recreate the Agenius Framer template (https://optimistic-methodologies-359017.framer.app/) for the agency "brandmefy". Replace pricing with a "Speak to us" contact section. Stack: FastAPI + React + MongoDB + Resend.
 
-## Stack
-- Frontend: React 19 + Tailwind + shadcn/ui + framer-motion + sonner + axios
-- Backend: FastAPI + Motor (MongoDB) + Resend SDK
-- Fonts: Fraunces (display serif) + Outfit (body)
+## Final Design (iter 3)
+- All-black layered theme: #050505 / #0a0a0a / #0f0f0f / #141414
+- White text, emerald green #10B981 accents
+- Fonts: Boldonse (giant hero word), Anton (all section headings), Inter (body), Caveat (handwritten accents)
+- Single MENU button → full-screen overlay nav (matches template)
+- Logo: lowercase "brandmefy" + green B icon + "Beyond Marketing" tagline
 
-## User Personas
-- Founders / marketing leads looking for a creative agency
-- Potential agency hires (Team section CTA)
+## Sections (15)
+Hero (giant BRANDMEFY + stickers) → ValueProps → LogoMarquee → Stats → Services (interactive tabs) → Benefits (bento grid) → Portfolio → Process → BuiltDifferent (comparison) → Testimonials (marquee + video) → About → Team (+ hiring card) → FAQs → SpeakToUs (contact form) → Footer
 
-## Core Requirements (static)
-- Faithful section-for-section recreation of the Agenius template with all motion
-- Pricing section replaced by "Speak to us" contact form (Name, Email, Company, Message)
-- Contact form posts to /api/contact, stores in MongoDB, emails Resend → brandmefymedia@gmail.com
-- Black majority + Warm Cream + Tomato Red + Charcoal palette
-- No em dashes anywhere in copy
-- Every interactive element has data-testid
-
-## Implemented (Dec 2025)
-- 16 sections: Navbar, Hero (with animated headline + word marquee), Value Props (3 cards), Brand Marquee, Stats with animated counters, Services (interactive tab/accordion with detail panel), Benefits (bento grid 7 cards), Portfolio (4-card grid), Process (4 steps), Built Different (comparison), Testimonials (infinite marquee), About (oversized narrative), Team (3 members + Hiring card), FAQs (shadcn accordion), Speak to us (contact form), Footer (with oversized brand text)
-- /api/contact endpoint: validates payload, stores submission in MongoDB, sends transactional email via Resend, returns status='sent' or 'stored'
-- /api/contact GET returns list (no _id leak)
-- Smooth scroll navigation, sticky glass navbar, mobile menu
-- 100% test pass (8/8 backend pytest, all critical frontend flows)
-
-## Prioritized Backlog
-- P1: Wire portfolio cards to real case-study pages (when client logos/cases arrive)
-- P1: Add JSON-LD schema + Open Graph meta tags for SEO/social previews
-- P2: CMS or markdown-backed blog section for content marketing
-- P2: Cookie consent banner (GDPR)
-- P2: Light analytics (Plausible / GA4) hookup
-- P3: Verify a custom domain in Resend so emails come from @brandmefy.com instead of onboarding@resend.dev
+## Backend
+- POST /api/contact: stores submission in MongoDB and sends email via Resend to brandmefymedia@gmail.com
+- GET /api/contact: lists submissions
+- Resend API key + sender email in /app/backend/.env
 
 ## Files
-- /app/backend/server.py — API routes (/api/, /api/contact, /api/status)
-- /app/backend/.env — MONGO_URL, DB_NAME, RESEND_API_KEY, SENDER_EMAIL, RECIPIENT_EMAIL
-- /app/frontend/src/pages/Landing.jsx — single page composition
-- /app/frontend/src/components/landing/*.jsx — 16 section components
-- /app/frontend/src/index.css — design tokens, fonts, marquee/grain utilities
+- /app/frontend/src/index.css — design tokens, Boldonse/Anton, marquee/grain/sticker utilities
+- /app/frontend/src/App.js — Toaster imported directly from sonner
+- /app/frontend/src/pages/Landing.jsx — composes all 15 sections
+- /app/frontend/src/components/landing/* — 15 section components + Navbar + Footer
+- /app/backend/server.py — /api/contact endpoint
+- /app/backend/.env — RESEND_API_KEY, SENDER_EMAIL, RECIPIENT_EMAIL
 
-## Next Tasks
-- Replace placeholder portfolio imagery with real case studies when client provides
-- Add verified domain in Resend dashboard so emails send from brandmefy.com
-- Consider adding case study sub-pages
+## Status
+- iter 1 (Dec 2025): initial build, fonts Fraunces+Outfit, tomato red accents — passed 8/8 backend, 100% frontend
+- iter 2 (Dec 2025): redesign to Oswald + green from logo, cream/dark mix — passed redesign checks
+- iter 3 (Dec 2025): full Agenius template match — Boldonse + Anton + emerald #10B981 + all-black layered theme + MENU overlay nav. 17/17 checks passed.
+
+## Backlog
+- Replace placeholder portfolio imagery + brand marquee names with real client work
+- Verify a custom domain in Resend so emails send from @brandmefy
+- Add real video testimonials (currently thumbnails only)
+- Case study sub-pages
+- SEO meta + OG cards
