@@ -56,16 +56,16 @@ export default function Benefits() {
     <section
       id="benefits"
       data-testid="benefits-section"
-      className="py-24 md:py-32 bg-[var(--brand-black)]"
+      className="py-24 md:py-32 bg-bg-2"
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="flex flex-col gap-4 mb-12">
           <span className="section-label inline-flex">Benefits</span>
           <h2
-            className="font-display-bold uppercase text-cream"
-            style={{ fontSize: "clamp(40px, 8vw, 128px)", lineHeight: 0.92, letterSpacing: "-0.02em" }}
+            className="font-anton uppercase text-white tracking-[-0.025em]"
+            style={{ fontSize: "clamp(44px, 9vw, 144px)", lineHeight: 0.9 }}
           >
-            Why we are <span className="text-green-brand">the best</span>
+            Why we are <span className="text-emerald-brand">the best</span>
           </h2>
         </div>
 
@@ -80,16 +80,18 @@ export default function Benefits() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: (i % 4) * 0.05 }}
-                className={`card-surface p-6 md:p-8 flex flex-col gap-4 min-h-[200px] ${b.span ?? ""}`}
+                className={`card-surface p-6 md:p-8 flex flex-col gap-4 min-h-[210px] ${b.span ?? ""}`}
               >
-                <div className="w-11 h-11 rounded-xl bg-green-brand/15 flex items-center justify-center text-green-brand">
+                <div className="w-11 h-11 rounded-xl bg-emerald-brand/15 border border-emerald-brand/30 flex items-center justify-center text-emerald-brand">
                   <Icon size={20} />
                 </div>
                 <div>
-                  <h3 className="font-display-bold uppercase text-xl md:text-2xl tracking-tight mb-2 text-cream">
+                  <h3 className="font-anton uppercase text-xl md:text-2xl tracking-tight mb-2">
                     {b.title}
                   </h3>
-                  <p className="text-cream/60 text-sm leading-relaxed">{b.body}</p>
+                  <p className="text-white/60 text-sm leading-relaxed">
+                    {b.body}
+                  </p>
                 </div>
               </motion.div>
             );

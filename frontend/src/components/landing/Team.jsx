@@ -34,16 +34,17 @@ export default function Team() {
     <section
       id="team"
       data-testid="team-section"
-      className="section-light py-24 md:py-32 relative"
+      className="py-24 md:py-32 bg-bg-2 relative"
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="flex flex-col gap-4 mb-12">
-          <span className="section-label section-label-dark inline-flex">The team</span>
+          <span className="section-label inline-flex">The team</span>
           <h2
-            className="font-display-bold uppercase text-black"
-            style={{ fontSize: "clamp(40px, 8vw, 128px)", lineHeight: 0.92, letterSpacing: "-0.02em" }}
+            className="font-anton uppercase text-white tracking-[-0.025em]"
+            style={{ fontSize: "clamp(44px, 9vw, 144px)", lineHeight: 0.9 }}
           >
-            The humans behind <span className="text-green-brand">the work</span>
+            The humans behind{" "}
+            <span className="text-emerald-brand">the work</span>
           </h2>
         </div>
 
@@ -56,34 +57,35 @@ export default function Team() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.6, delay: i * 0.08 }}
-              className="card-light overflow-hidden flex flex-col"
+              className="card-surface overflow-hidden flex flex-col"
             >
-              <div className="aspect-[4/5] overflow-hidden bg-[var(--brand-cream-deep)] relative">
+              <div className="aspect-[4/5] overflow-hidden bg-bg-3 relative">
                 <img
                   src={m.image}
                   alt={`${m.first} ${m.last}`}
                   loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  style={{ filter: "grayscale(0.15) brightness(0.95)" }}
                 />
-                <span className="absolute top-3 left-3 text-[10px] uppercase tracking-[0.25em] bg-black text-cream px-3 py-1.5 rounded-full">
+                <span className="absolute top-3 left-3 text-[10px] uppercase tracking-[0.25em] bg-emerald-brand text-black px-3 py-1.5 rounded-full font-medium">
                   {m.nickname}
                 </span>
               </div>
               <div className="p-5 flex flex-col gap-2">
-                <div className="font-display-bold uppercase text-2xl leading-none tracking-tight text-black">
+                <div className="font-anton uppercase text-2xl leading-none tracking-tight">
                   {m.first}
                 </div>
-                <div className="font-display-bold uppercase text-2xl leading-none tracking-tight text-black">
+                <div className="font-anton uppercase text-2xl leading-none tracking-tight">
                   {m.last}
                 </div>
-                <div className="text-xs text-black/60 mt-2">{m.role}</div>
+                <div className="text-xs text-white/60 mt-2">{m.role}</div>
                 <div className="flex gap-2 mt-3">
                   <a
                     data-testid={`team-${i}-twitter`}
                     href="https://x.com"
                     target="_blank"
                     rel="noreferrer"
-                    className="w-8 h-8 rounded-full border border-black/10 flex items-center justify-center text-black/70 hover:border-green-brand hover:text-green-brand transition-colors"
+                    className="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center text-white/70 hover:border-emerald-brand hover:text-emerald-brand transition-colors"
                     aria-label="Twitter"
                   >
                     <Twitter size={14} />
@@ -93,7 +95,7 @@ export default function Team() {
                     href="https://linkedin.com"
                     target="_blank"
                     rel="noreferrer"
-                    className="w-8 h-8 rounded-full border border-black/10 flex items-center justify-center text-black/70 hover:border-green-brand hover:text-green-brand transition-colors"
+                    className="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center text-white/70 hover:border-emerald-brand hover:text-emerald-brand transition-colors"
                     aria-label="LinkedIn"
                   >
                     <Linkedin size={14} />
@@ -110,16 +112,16 @@ export default function Team() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="rounded-2xl overflow-hidden flex flex-col justify-between p-6 relative bg-green-brand text-black"
+            className="rounded-[20px] overflow-hidden flex flex-col justify-between p-6 relative bg-emerald-brand text-black"
           >
             <div>
-              <span className="font-display-bold text-5xl block leading-none">
+              <span className="font-anton text-5xl block leading-none">
                 !!!!
               </span>
-              <div className="mt-6 font-display-bold uppercase text-2xl leading-tight">
+              <div className="mt-6 font-anton uppercase text-2xl leading-tight">
                 Maybe You
               </div>
-              <div className="font-display-bold uppercase text-2xl leading-tight">
+              <div className="font-anton uppercase text-2xl leading-tight">
                 Cause we are hiring
               </div>
             </div>

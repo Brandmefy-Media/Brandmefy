@@ -33,16 +33,17 @@ export default function BuiltDifferent() {
     <section
       id="differences"
       data-testid="differences-section"
-      className="py-24 md:py-32 bg-[var(--brand-black)] border-t border-white/5"
+      className="py-24 md:py-32 bg-bg-2 border-t border-white/5"
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="flex flex-col gap-4 mb-14">
           <span className="section-label inline-flex">Differences</span>
           <h2
-            className="font-display-bold uppercase text-cream"
-            style={{ fontSize: "clamp(40px, 8vw, 128px)", lineHeight: 0.92, letterSpacing: "-0.02em" }}
+            className="font-anton uppercase text-white tracking-[-0.025em]"
+            style={{ fontSize: "clamp(44px, 9vw, 144px)", lineHeight: 0.9 }}
           >
-            Built different <span className="text-green-brand">(in a good way)</span>
+            Built different{" "}
+            <span className="text-emerald-brand">(in a good way)</span>
           </h2>
         </div>
 
@@ -52,16 +53,16 @@ export default function BuiltDifferent() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="rounded-3xl border border-white/10 p-6 md:p-10 bg-charcoal/40"
+            className="rounded-3xl border border-white/10 p-6 md:p-10 bg-[var(--bg-card)]"
           >
-            <h3 className="font-display-bold uppercase text-2xl md:text-3xl text-cream/40 mb-6">
+            <h3 className="font-anton uppercase text-2xl md:text-3xl text-white/40 mb-6">
               Other Agencies
             </h3>
             <ul className="space-y-4">
               {OTHERS.map((item, i) => (
                 <li
                   key={i}
-                  className="flex items-center gap-3 text-cream/40 line-through decoration-cream/20"
+                  className="flex items-center gap-3 text-white/40 line-through decoration-white/20"
                 >
                   <X size={16} className="shrink-0" />
                   <span className="text-base md:text-lg">{item}</span>
@@ -75,20 +76,16 @@ export default function BuiltDifferent() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="rounded-3xl border border-green-brand/30 p-6 md:p-10 relative overflow-hidden"
-            style={{
-              background:
-                "linear-gradient(135deg, rgba(34,197,94,0.12), rgba(244,240,230,0.02))",
-            }}
+            className="rounded-3xl border border-emerald-brand/30 p-6 md:p-10 relative overflow-hidden bg-[var(--bg-card)]"
           >
-            <div className="absolute -top-24 -right-24 w-72 h-72 bg-green-brand/20 blur-[100px] rounded-full" />
-            <h3 className="font-display-bold uppercase text-2xl md:text-3xl text-cream mb-6 relative">
-              brandmefy <span className="text-green-brand">.</span>
+            <div className="absolute -top-24 -right-24 w-72 h-72 bg-emerald-brand/15 blur-[100px] rounded-full" />
+            <h3 className="font-anton uppercase text-2xl md:text-3xl text-white mb-6 relative">
+              brandmefy <span className="text-emerald-brand">.</span>
             </h3>
             <ul className="space-y-4 relative">
               {US.map((item, i) => (
-                <li key={i} className="flex items-center gap-3 text-cream">
-                  <span className="shrink-0 w-5 h-5 rounded-full bg-green-brand text-black flex items-center justify-center">
+                <li key={i} className="flex items-center gap-3 text-white">
+                  <span className="shrink-0 w-5 h-5 rounded-full bg-emerald-brand text-black flex items-center justify-center">
                     <Check size={12} strokeWidth={3} />
                   </span>
                   <span className="text-base md:text-lg">{item}</span>

@@ -1,0 +1,49 @@
+{
+  "summary": "Frontend-only e2e Playwright testing of Brandmefy landing rebuild (iteration 3 - Agenius template look). All critical visual, interaction, and integration checks pass. Sonner toast regression from iteration 2 is FIXED — '[data-sonner-toaster]' appears in DOM after submit and renders 'Thanks. Your message just landed in our inbox.' Backend /api/contact returns 200 and form clears.",
+  "backend_issues": { "critical": [], "minor": [] },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Mobile menu overlay (375x812)", "issues": ["Overlay backdrop uses bg-black/95 (5% transparent) so hero BRANDMEFY word + stickers bleed through behind the nav links. Matches the Agenius reference but reduces legibility — consider bg-black/98 or adding a stronger backdrop-blur amount on small screens."]}
+    ]
+  },
+  "test_results_detail": {
+    "hero_brand_word": "PASS — text='BRANDMEFY', fontFamily='Boldonse, Anton, \"Bebas Neue\", sans-serif', color=rgb(255,255,255), fontSize=200px at 1440vp, width=1321px (no overflow)",
+    "stickers": "PASS — Timeless (white bg), Creative (white bg), Edgy (rgb(16,185,129) emerald bg) all visible",
+    "hero_cta_primary_color": "PASS — backgroundColor=rgb(16,185,129)",
+    "section_backgrounds_dark": "PASS — all 16 sections use #050505 / #0a0a0a / #0f0f0f layered dark; no cream",
+    "menu_toggle_opens_overlay": "PASS — overlay appears with 8 nav links",
+    "menu_link_closes_and_scrolls": "PASS — clicking menu-link-services closes overlay (gone from DOM) and scrolls to y=3344",
+    "menu_close_button": "PASS — overlay removed from DOM after close click",
+    "hero_cta_secondary_scroll": "PASS — scrolls to portfolio (y=6073)",
+    "hero_cta_primary_scroll": "PASS — scrolls to speak-to-us (y=13382)",
+    "contact_form_submit": "PASS — POST /api/contact 200, form fields cleared after success",
+    "sonner_toaster_mounted": "PASS — pre-submit: <section aria-label='Notifications alt+T'> present; post-submit: [data-sonner-toaster] + [data-sonner-toast] with text 'Thanks. Your message just landed in our inbox.'",
+    "mobile_375x812": "PASS — no horizontal overflow (docW=vp=375), hero word fits (width=370.96 < 375), fontSize clamps to 56px, menu button visible, overlay opens with 8 links",
+    "tablet_768x1024": "PASS — no horizontal overflow",
+    "desktop_1440x900": "PASS — hero word 1321px < 1440 viewport, subtitle has mt-16/24 (no overlap)",
+    "all_15_sections_present": "PASS — hero, value-props, brands, stats, services, benefits, portfolio, process, differences, testimonials, about, team, faqs, speak-to-us, footer",
+    "em_dash_check": "PASS — zero em-dash characters anywhere in body text",
+    "lowercase_brandmefy_in_nav": "PASS — 'brandmefy' lowercase + 'BEYOND MARKETING' tagline shown in nav",
+    "footer_giant_brandmefy": "PASS — uppercase BRANDMEFY renders inside #footer",
+    "copyright_lowercase": "PASS — '© 2026 brandmefy. Beyond Marketing.'"
+  },
+  "test_report_links": ["/app/backend/tests/test_brandmefy_api.py (from iteration 1, still valid)"],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "Hero.jsx, line 38-50: extra sticker 'Brands' (rgb(16,185,129)) was detected via .sticker selector — actually that one belongs to LogoMarquee/Brands section, not Hero. Confirmed: only 3 sticker badges in the hero (Timeless / Creative / Edgy). No issue.",
+    "Navbar.jsx body overflow lock cleanup on unmount looks correct.",
+    "App.js Toaster now imported directly from 'sonner' (fixes iteration-2 regression). Verified the rendered DOM contains <section aria-label='Notifications alt+T'> on initial load and [data-sonner-toaster] populates after first toast() call.",
+    "All interactive elements expose data-testid (menu-toggle, menu-overlay, menu-close, menu-link-*, hero-brand-word, hero-cta-primary/secondary, speak-name/email/company/message/submit).",
+    "Mobile overlay: bg-black/95 lets hero bleed through — cosmetic only, not blocking. Consider bumping to /98 or stronger backdrop-blur on <md screens for cleaner separation."
+  ],
+  "updated_files": [],
+  "success_rate": { "backend": "N/A (not retested this iteration)", "frontend": "100% on the 17 listed checks" },
+  "test_credentials": "N/A",
+  "seed_data_creation": "One TEST_ contact submission via /api/contact (name='TEST Reviewer', email='test+reviewer@example.com'). Persisted in Mongo.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Iteration 3 fixed the Sonner regression by importing Toaster directly from 'sonner' in App.js (no next-themes wrapper). Backend unchanged from iteration 1. Public URL https://brandmefy-launch.preview.emergentagent.com. POST /api/contact returns {status:'sent'|'stored', message:'...'} and frontend toast shows that message via sonner. All 15 sections rendered with layered dark backgrounds. The 'Edgy' sticker uses emerald, the other two are white. Hero giant word Boldonse only — all other section headings use Anton (uppercase condensed) as specified. No em dashes anywhere.",
+  "rca of the issue": "No bugs — iteration 2 Sonner regression confirmed fixed."
+}

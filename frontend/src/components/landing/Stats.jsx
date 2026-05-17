@@ -41,12 +41,12 @@ export default function Stats() {
     <section
       id="stats"
       data-testid="stats-section"
-      className="py-24 md:py-32 bg-[var(--brand-black)] relative"
+      className="py-24 md:py-32 bg-[var(--bg-0)] relative"
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
           <span className="section-label inline-flex">Numbers</span>
-          <p className="text-cream/50 text-sm md:text-base max-w-md">
+          <p className="text-white/50 text-sm md:text-base max-w-md">
             A few honest figures from a few honest years of doing the work.
           </p>
         </div>
@@ -61,10 +61,13 @@ export default function Stats() {
               transition={{ duration: 0.7, delay: i * 0.08 }}
               className="border-t border-white/10 pt-6"
             >
-              <div className="font-display-bold uppercase text-cream" style={{ fontSize: "clamp(40px, 7vw, 96px)", lineHeight: 0.95 }}>
+              <div
+                className="font-anton uppercase text-white"
+                style={{ fontSize: "clamp(44px, 7vw, 104px)", lineHeight: 0.95 }}
+              >
                 <Counter to={s.value} suffix={s.suffix} />
               </div>
-              <div className="mt-3 text-xs md:text-sm text-cream/55 uppercase tracking-wider">
+              <div className="mt-3 text-xs md:text-sm text-white/55 uppercase tracking-[0.2em]">
                 {s.label}
               </div>
             </motion.div>

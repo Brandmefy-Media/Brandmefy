@@ -43,7 +43,7 @@ export default function FAQs() {
     <section
       id="faqs"
       data-testid="faqs-section"
-      className="py-24 md:py-32 bg-[var(--brand-black)] border-t border-white/5"
+      className="py-24 md:py-32 bg-bg-1 border-t border-white/5"
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -54,12 +54,13 @@ export default function FAQs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="font-display-bold uppercase text-cream"
-              style={{ fontSize: "clamp(40px, 7vw, 96px)", lineHeight: 0.95, letterSpacing: "-0.02em" }}
+              className="font-anton uppercase text-white tracking-[-0.025em]"
+              style={{ fontSize: "clamp(44px, 7vw, 104px)", lineHeight: 0.95 }}
             >
-              You ask,<br /><span className="text-green-brand">we answer</span>
+              You ask,<br />
+              <span className="text-emerald-brand">we answer</span>
             </motion.h2>
-            <p className="text-cream/60 mt-6 max-w-sm">
+            <p className="text-white/60 mt-6 max-w-sm">
               Still curious? Drop us a note and we will reply with the real
               answer, not a brochure.
             </p>
@@ -74,10 +75,10 @@ export default function FAQs() {
                   data-testid={`faq-item-${i}`}
                   className="border-white/10"
                 >
-                  <AccordionTrigger className="text-left font-display-bold uppercase text-lg md:text-2xl tracking-tight py-6 hover:no-underline hover:text-green-brand">
+                  <AccordionTrigger className="text-left font-anton uppercase text-lg md:text-2xl tracking-tight py-6 hover:no-underline hover:text-emerald-brand">
                     {item.q}
                   </AccordionTrigger>
-                  <AccordionContent className="text-cream/65 text-base leading-relaxed pb-6">
+                  <AccordionContent className="text-white/65 text-base leading-relaxed pb-6">
                     {item.a}
                   </AccordionContent>
                 </AccordionItem>

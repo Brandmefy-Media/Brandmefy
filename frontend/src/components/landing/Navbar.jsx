@@ -1,37 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { X } from "lucide-react";
 
 const NAV_LINKS = [
+  { label: "Home", id: "hero" },
   { label: "Services", id: "services" },
   { label: "Work", id: "portfolio" },
   { label: "Process", id: "process" },
   { label: "About", id: "about" },
+  { label: "Team", id: "team" },
   { label: "FAQs", id: "faqs" },
+  { label: "Speak to us", id: "speak-to-us" },
 ];
 
-function BrandmefyLogo({ size = "md", invert = false }) {
-  const sizes = {
-    sm: { letter: "text-lg", text: "text-xl" },
-    md: { letter: "text-xl", text: "text-2xl" },
-    lg: { letter: "text-3xl", text: "text-4xl" },
-  };
-  const s = sizes[size] ?? sizes.md;
+function BrandmefyLogo() {
   return (
-    <span className="inline-flex items-center gap-2">
-      <span
-        className={`font-display-bold ${s.letter} text-green-brand inline-flex items-center justify-center w-8 h-8 rounded-md bg-green-brand/15 leading-none`}
-        aria-hidden
-      >
+    <span className="inline-flex items-center gap-2.5">
+      <span className="font-anton text-emerald-brand inline-flex items-center justify-center w-9 h-9 rounded-lg bg-emerald-brand/15 border border-emerald-brand/30 leading-none text-lg pt-0.5">
         B
       </span>
-      <span
-        className={`font-display ${s.text} tracking-tight ${
-          invert ? "text-black" : "text-cream"
-        }`}
-        style={{ fontWeight: 500 }}
-      >
-        brandmefy
+      <span className="flex flex-col leading-none">
+        <span className="font-display text-base text-white tracking-tight">
+          brandmefy
+        </span>
+        <span className="text-[9px] text-white/50 uppercase tracking-[0.25em] mt-1">
+          Beyond Marketing
+        </span>
       </span>
     </span>
   );
@@ -47,98 +41,116 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   const scrollTo = (id) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
     setOpen(false);
+    setTimeout(() => {
+      document
+        .getElementById(id)
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 280);
   };
 
   return (
-    <motion.header
-      data-testid="navbar"
-      initial={{ y: -40, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "py-3 bg-black/75 backdrop-blur-xl border-b border-white/5"
-          : "py-4 md:py-5 bg-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between">
-        <button
-          data-testid="logo-home"
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          aria-label="brandmefy home"
-        >
-          <BrandmefyLogo size="md" />
-        </button>
-
-        <nav className="hidden md:flex items-center gap-8">
-          {NAV_LINKS.map((link) => (
-            <button
-              key={link.id}
-              data-testid={`nav-link-${link.id}`}
-              onClick={() => scrollTo(link.id)}
-              className="text-sm text-cream/70 hover:text-cream transition-colors duration-200"
-            >
-              {link.label}
-            </button>
-          ))}
-        </nav>
-
-        <div className="hidden md:block">
+    <>
+      <motion.header
+        data-testid="navbar"
+        initial={{ y: -40, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+          scrolled
+            ? "py-3 bg-black/70 backdrop-blur-xl border-b border-white/5"
+            : "py-4 md:py-5 bg-transparent"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between">
           <button
-            data-testid="nav-cta-speak"
-            onClick={() => scrollTo("speak-to-us")}
-            className="btn-primary"
+            data-testid="logo-home"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            aria-label="brandmefy home"
           >
-            Speak to us
+            <BrandmefyLogo />
+          </button>
+
+          <button
+            data-testid="menu-toggle"
+            onClick={() => setOpen(true)}
+            className="btn-pill-white font-anton tracking-[0.18em] uppercase text-xs px-6 py-3"
+          >
+            Menu
           </button>
         </div>
-
-        <button
-          data-testid="nav-mobile-toggle"
-          className="md:hidden text-cream p-2 -mr-2"
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle menu"
-        >
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </button>
-      </div>
+      </motion.header>
 
       <AnimatePresence>
         {open && (
           <motion.div
-            data-testid="nav-mobile-panel"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
+            data-testid="menu-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden overflow-hidden border-t border-white/5 bg-black/95 backdrop-blur-xl"
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl"
           >
-            <div className="px-6 py-6 flex flex-col gap-4">
-              {NAV_LINKS.map((link) => (
-                <button
-                  key={link.id}
-                  data-testid={`nav-mobile-link-${link.id}`}
-                  onClick={() => scrollTo(link.id)}
-                  className="text-left text-cream/80 text-base py-1"
-                >
-                  {link.label}
-                </button>
-              ))}
+            <div className="absolute top-0 left-0 right-0 py-4 md:py-5 px-4 md:px-6 flex items-center justify-between">
+              <BrandmefyLogo />
               <button
-                data-testid="nav-mobile-cta"
-                onClick={() => scrollTo("speak-to-us")}
-                className="btn-primary self-start mt-2"
+                data-testid="menu-close"
+                onClick={() => setOpen(false)}
+                className="btn-pill-white"
+                aria-label="Close menu"
               >
-                Speak to us
+                <X size={16} />
+                <span className="font-anton tracking-[0.18em] uppercase text-xs">
+                  Close
+                </span>
               </button>
             </div>
+
+            <div className="h-full w-full flex items-center justify-center px-6">
+              <nav className="flex flex-col items-center gap-4 md:gap-6">
+                {NAV_LINKS.map((link, i) => (
+                  <motion.button
+                    key={link.id}
+                    data-testid={`menu-link-${link.id}`}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.1 + i * 0.05 }}
+                    onClick={() => scrollTo(link.id)}
+                    className="font-anton uppercase text-white hover:text-emerald-brand transition-colors duration-300 tracking-tight leading-none"
+                    style={{ fontSize: "clamp(40px, 8vw, 96px)" }}
+                  >
+                    {link.label}
+                  </motion.button>
+                ))}
+              </nav>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6, duration: 0.4 }}
+              className="absolute bottom-6 left-0 right-0 px-4 md:px-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/50"
+            >
+              <span>brandmefymedia@gmail.com</span>
+              <span className="uppercase tracking-[0.25em]">
+                Beyond Marketing
+              </span>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </>
   );
 }

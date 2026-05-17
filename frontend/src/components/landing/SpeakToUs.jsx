@@ -26,7 +26,9 @@ export default function SpeakToUs() {
     setLoading(true);
     try {
       const res = await axios.post(`${API}/contact`, form);
-      toast.success(res.data?.message || "Message sent. We will be in touch.");
+      toast.success(
+        res.data?.message || "Message sent. We will be in touch.",
+      );
       setForm({ name: "", email: "", company: "", message: "" });
     } catch (err) {
       const msg =
@@ -42,11 +44,11 @@ export default function SpeakToUs() {
     <section
       id="speak-to-us"
       data-testid="speak-section"
-      className="py-24 md:py-32 bg-[var(--brand-black)] border-t border-white/5 relative overflow-hidden"
+      className="py-24 md:py-32 bg-[var(--bg-0)] border-t border-white/5 relative overflow-hidden"
     >
       <div
         aria-hidden
-        className="absolute -top-32 right-0 w-[520px] h-[520px] rounded-full bg-green-brand/10 blur-[140px]"
+        className="absolute -top-32 right-0 w-[520px] h-[520px] rounded-full bg-emerald-brand/10 blur-[140px]"
       />
       <div className="max-w-7xl mx-auto px-4 md:px-6 relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
@@ -59,13 +61,13 @@ export default function SpeakToUs() {
           >
             <span className="section-label mb-6 inline-flex">Speak to us</span>
             <h2
-              className="font-display-bold uppercase text-cream"
-              style={{ fontSize: "clamp(40px, 7vw, 96px)", lineHeight: 0.95, letterSpacing: "-0.02em" }}
+              className="font-anton uppercase text-white tracking-[-0.025em]"
+              style={{ fontSize: "clamp(44px, 7vw, 104px)", lineHeight: 0.95 }}
             >
               Let us build something{" "}
-              <span className="text-green-brand">great</span> together
+              <span className="text-emerald-brand">great</span> together
             </h2>
-            <p className="text-cream/65 mt-6 max-w-md text-base md:text-lg">
+            <p className="text-white/65 mt-6 max-w-md text-base md:text-lg">
               No hidden fees, no copy-paste pitches. Tell us about your project
               and we will reply with a proper scope and price inside one
               business day.
@@ -73,28 +75,28 @@ export default function SpeakToUs() {
 
             <div className="mt-10 space-y-4 text-sm">
               <div className="flex items-center gap-4">
-                <span className="text-cream/40 uppercase tracking-[0.25em] text-xs w-20">
+                <span className="text-white/40 uppercase tracking-[0.25em] text-xs w-20">
                   Email
                 </span>
                 <a
                   data-testid="speak-email-link"
                   href="mailto:brandmefymedia@gmail.com"
-                  className="text-cream hover:text-green-brand transition-colors break-all"
+                  className="text-white hover:text-emerald-brand transition-colors break-all"
                 >
                   brandmefymedia@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-4">
-                <span className="text-cream/40 uppercase tracking-[0.25em] text-xs w-20">
+                <span className="text-white/40 uppercase tracking-[0.25em] text-xs w-20">
                   Studio
                 </span>
-                <span className="text-cream/80">Remote, working worldwide</span>
+                <span className="text-white/80">Remote, working worldwide</span>
               </div>
               <div className="flex items-center gap-4">
-                <span className="text-cream/40 uppercase tracking-[0.25em] text-xs w-20">
+                <span className="text-white/40 uppercase tracking-[0.25em] text-xs w-20">
                   Hours
                 </span>
-                <span className="text-cream/80">Mon to Fri, 9 to 6</span>
+                <span className="text-white/80">Mon to Fri, 9 to 6</span>
               </div>
             </div>
           </motion.div>
@@ -137,7 +139,7 @@ export default function SpeakToUs() {
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="speak-message"
-                className="text-xs uppercase tracking-[0.25em] text-cream/50"
+                className="text-xs uppercase tracking-[0.25em] text-white/50"
               >
                 Tell us about your project
               </label>
@@ -148,7 +150,7 @@ export default function SpeakToUs() {
                 value={form.message}
                 onChange={(e) => setField("message", e.target.value)}
                 placeholder="A few lines about goals, timeline and what you have already tried."
-                className="bg-black/40 border border-white/10 focus:border-green-brand focus:outline-none rounded-xl px-4 py-3 text-cream placeholder:text-cream/30 resize-none transition-colors"
+                className="bg-black/40 border border-white/10 focus:border-emerald-brand focus:outline-none rounded-xl px-4 py-3 text-white placeholder:text-white/30 resize-none transition-colors"
                 required
               />
             </div>
@@ -170,9 +172,9 @@ export default function SpeakToUs() {
               )}
             </button>
 
-            <p className="text-xs text-cream/40">
-              By submitting, you agree to be contacted about your project. We do
-              not sell or share your details.
+            <p className="text-xs text-white/40">
+              By submitting, you agree to be contacted about your project. We
+              do not sell or share your details.
             </p>
           </motion.form>
         </div>
@@ -181,10 +183,21 @@ export default function SpeakToUs() {
   );
 }
 
-function FieldInput({ id, label, type = "text", value, onChange, placeholder, required }) {
+function FieldInput({
+  id,
+  label,
+  type = "text",
+  value,
+  onChange,
+  placeholder,
+  required,
+}) {
   return (
     <div className="flex flex-col gap-2">
-      <label htmlFor={id} className="text-xs uppercase tracking-[0.25em] text-cream/50">
+      <label
+        htmlFor={id}
+        className="text-xs uppercase tracking-[0.25em] text-white/50"
+      >
         {label}
       </label>
       <input
@@ -195,7 +208,7 @@ function FieldInput({ id, label, type = "text", value, onChange, placeholder, re
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         required={required}
-        className="bg-black/40 border border-white/10 focus:border-green-brand focus:outline-none rounded-xl px-4 py-3 text-cream placeholder:text-cream/30 transition-colors"
+        className="bg-black/40 border border-white/10 focus:border-emerald-brand focus:outline-none rounded-xl px-4 py-3 text-white placeholder:text-white/30 transition-colors"
       />
     </div>
   );

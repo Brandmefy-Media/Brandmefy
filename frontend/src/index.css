@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Caveat:wght@500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Boldonse&family=Anton&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@500;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -7,33 +7,39 @@
 @layer base {
     :root {
         --background: 0 0% 2%;
-        --foreground: 42 35% 93%;
-        --card: 0 0% 7%;
-        --card-foreground: 42 35% 93%;
-        --popover: 0 0% 7%;
-        --popover-foreground: 42 35% 93%;
-        --primary: 142 71% 45%;
+        --foreground: 0 0% 100%;
+        --card: 0 0% 6%;
+        --card-foreground: 0 0% 100%;
+        --popover: 0 0% 6%;
+        --popover-foreground: 0 0% 100%;
+        --primary: 158 84% 39%;
         --primary-foreground: 0 0% 5%;
-        --secondary: 0 0% 10%;
-        --secondary-foreground: 42 35% 93%;
-        --muted: 0 0% 10%;
-        --muted-foreground: 240 5% 65%;
-        --accent: 142 71% 45%;
+        --secondary: 0 0% 8%;
+        --secondary-foreground: 0 0% 100%;
+        --muted: 0 0% 8%;
+        --muted-foreground: 0 0% 65%;
+        --accent: 158 84% 39%;
         --accent-foreground: 0 0% 5%;
         --destructive: 0 84.2% 60.2%;
         --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 16%;
-        --input: 0 0% 14%;
-        --ring: 142 71% 45%;
+        --border: 0 0% 14%;
+        --input: 0 0% 12%;
+        --ring: 158 84% 39%;
         --radius: 0.75rem;
 
-        --brand-cream: #f5f1e6;
-        --brand-cream-deep: #ece6d5;
-        --brand-green: #22c55e;
-        --brand-green-deep: #16a34a;
-        --brand-green-bright: #34d066;
-        --brand-charcoal: #1a1a1a;
-        --brand-black: #050505;
+        --bg-0: #050505;
+        --bg-1: #0a0a0a;
+        --bg-2: #0f0f0f;
+        --bg-3: #141414;
+        --bg-card: #161616;
+        --line: rgba(255, 255, 255, 0.08);
+        --line-strong: rgba(255, 255, 255, 0.16);
+        --text: #ffffff;
+        --text-muted: rgba(255, 255, 255, 0.65);
+        --text-soft: rgba(255, 255, 255, 0.45);
+        --emerald: #10b981;
+        --emerald-bright: #34d399;
+        --emerald-deep: #059669;
     }
 }
 
@@ -46,71 +52,61 @@
     }
     body {
         margin: 0;
-        background: var(--brand-black);
-        color: var(--brand-cream);
-        font-family: "Outfit", system-ui, sans-serif;
+        background: var(--bg-0);
+        color: var(--text);
+        font-family: "Inter", system-ui, -apple-system, sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         overflow-x: hidden;
     }
     ::selection {
-        background: var(--brand-green);
-        color: var(--brand-black);
+        background: var(--emerald);
+        color: #000;
     }
 }
 
 @layer utilities {
     .font-display {
-        font-family: "Oswald", "Bebas Neue", "Anton", sans-serif;
+        font-family: "Boldonse", "Anton", "Bebas Neue", sans-serif;
         font-weight: 400;
         letter-spacing: -0.01em;
     }
-    .font-display-bold {
-        font-family: "Oswald", sans-serif;
-        font-weight: 700;
-        letter-spacing: -0.02em;
+    .font-anton {
+        font-family: "Anton", "Boldonse", "Bebas Neue", sans-serif;
+        font-weight: 400;
+        letter-spacing: -0.015em;
     }
     .font-body {
-        font-family: "Outfit", system-ui, sans-serif;
+        font-family: "Inter", system-ui, sans-serif;
     }
-    .font-handwritten {
+    .font-hand {
         font-family: "Caveat", cursive;
     }
-    .text-cream {
-        color: var(--brand-cream);
+    .text-emerald-brand {
+        color: var(--emerald);
     }
-    .text-green-brand {
-        color: var(--brand-green);
+    .bg-emerald-brand {
+        background-color: var(--emerald);
     }
-    .bg-cream {
-        background-color: var(--brand-cream);
+    .border-emerald-brand {
+        border-color: var(--emerald);
     }
-    .bg-cream-deep {
-        background-color: var(--brand-cream-deep);
+    .bg-bg-1 {
+        background-color: var(--bg-1);
     }
-    .bg-green-brand {
-        background-color: var(--brand-green);
+    .bg-bg-2 {
+        background-color: var(--bg-2);
     }
-    .bg-charcoal {
-        background-color: var(--brand-charcoal);
+    .bg-bg-3 {
+        background-color: var(--bg-3);
     }
-    .border-cream {
-        border-color: var(--brand-cream);
-    }
-    .border-green-brand {
-        border-color: var(--brand-green);
-    }
-    .text-outline-cream {
+    .text-outline-white {
         color: transparent;
-        -webkit-text-stroke: 1.5px var(--brand-cream);
+        -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.9);
     }
-    .text-outline-black {
+    .text-outline-emerald {
         color: transparent;
-        -webkit-text-stroke: 1.5px var(--brand-black);
-    }
-    .text-outline-green {
-        color: transparent;
-        -webkit-text-stroke: 1.5px var(--brand-green);
+        -webkit-text-stroke: 1.5px var(--emerald);
     }
     .grain {
         position: relative;
@@ -120,16 +116,9 @@
         position: absolute;
         inset: 0;
         pointer-events: none;
-        opacity: 0.06;
+        opacity: 0.05;
         mix-blend-mode: overlay;
         background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.9'/></svg>");
-    }
-    .section-light {
-        background: var(--brand-cream);
-        color: var(--brand-black);
-    }
-    .section-light * {
-        border-color: rgba(5, 5, 5, 0.1);
     }
 }
 
@@ -154,10 +143,7 @@
         will-change: transform;
     }
     .marquee-track--slow {
-        animation-duration: 50s;
-    }
-    .marquee-track--reverse {
-        animation-direction: reverse;
+        animation-duration: 60s;
     }
     @keyframes marquee {
         from {
@@ -169,8 +155,12 @@
     }
 
     @keyframes floaty {
-        0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); }
-        50% { transform: translateY(-8px) rotate(var(--rot, 0deg)); }
+        0%, 100% {
+            transform: translateY(0) rotate(var(--rot, 0deg));
+        }
+        50% {
+            transform: translateY(-8px) rotate(var(--rot, 0deg));
+        }
     }
     .floaty {
         animation: floaty 4s ease-in-out infinite;
@@ -181,94 +171,78 @@
         to { transform: rotate(360deg); }
     }
     .spin-slow {
-        animation: spin-slow 18s linear infinite;
+        animation: spin-slow 22s linear infinite;
     }
 
     .btn-primary {
         @apply inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-200 ease-out;
-        background: var(--brand-green);
-        color: var(--brand-black);
+        background: var(--emerald);
+        color: #000;
         font-weight: 600;
-        box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.85);
+        box-shadow:
+            0 0 0 1px rgba(16, 185, 129, 0.4),
+            0 8px 24px -8px rgba(16, 185, 129, 0.6);
     }
     .btn-primary:hover {
-        background: var(--brand-green-bright);
+        background: var(--emerald-bright);
         transform: translateY(-2px);
-        box-shadow: 0 6px 0 0 rgba(0, 0, 0, 0.85);
+        box-shadow:
+            0 0 0 1px rgba(52, 211, 153, 0.6),
+            0 12px 32px -8px rgba(16, 185, 129, 0.8);
     }
     .btn-primary:active {
-        transform: translateY(2px);
-        box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.85);
+        transform: translateY(0);
     }
 
     .btn-ghost {
         @apply inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-200 ease-out;
-        border: 1px solid rgba(244, 240, 230, 0.25);
-        color: var(--brand-cream);
+        border: 1px solid var(--line-strong);
+        color: var(--text);
         background: transparent;
     }
     .btn-ghost:hover {
-        border-color: var(--brand-cream);
-        background: rgba(244, 240, 230, 0.06);
+        border-color: var(--text);
+        background: rgba(255, 255, 255, 0.04);
     }
 
-    .btn-dark {
-        @apply inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-200 ease-out;
-        background: var(--brand-black);
-        color: var(--brand-cream);
+    .btn-pill-white {
+        @apply inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200;
+        background: white;
+        color: black;
         font-weight: 600;
-        box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.4);
     }
-    .btn-dark:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 0 0 rgba(0, 0, 0, 0.4);
+    .btn-pill-white:hover {
+        background: rgba(255, 255, 255, 0.92);
     }
 
     .card-surface {
-        background: var(--brand-charcoal);
-        border: 1px solid rgba(244, 240, 230, 0.08);
-        border-radius: 18px;
+        background: var(--bg-card);
+        border: 1px solid var(--line);
+        border-radius: 20px;
         transition:
             transform 0.3s ease,
-            border-color 0.3s ease;
+            border-color 0.3s ease,
+            background 0.3s ease;
     }
     .card-surface:hover {
         transform: translateY(-4px);
-        border-color: rgba(244, 240, 230, 0.2);
-    }
-
-    .card-light {
-        background: white;
-        border: 1px solid rgba(5, 5, 5, 0.08);
-        border-radius: 18px;
-        transition:
-            transform 0.3s ease,
-            border-color 0.3s ease;
-    }
-    .card-light:hover {
-        transform: translateY(-4px);
-        border-color: rgba(5, 5, 5, 0.2);
+        border-color: rgba(16, 185, 129, 0.4);
+        background: var(--bg-3);
     }
 
     .section-label {
-        @apply inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em];
-        color: var(--brand-green);
+        @apply inline-flex items-center gap-2 text-xs uppercase tracking-[0.28em];
+        color: var(--emerald);
     }
     .section-label::before {
         content: "";
         width: 28px;
         height: 1px;
-        background: var(--brand-green);
+        background: var(--emerald);
         display: inline-block;
     }
-    .section-label-dark {
-        color: var(--brand-black);
-    }
-    .section-label-dark::before {
-        background: var(--brand-black);
-    }
 
-    /* Sticker badge used around hero typography */
+    /* Sticker badge */
     .sticker {
         display: inline-flex;
         align-items: center;
@@ -276,12 +250,12 @@
         padding: 8px 18px;
         background: white;
         color: black;
-        font-family: "Oswald", sans-serif;
-        font-weight: 500;
+        font-family: "Anton", "Boldonse", sans-serif;
+        font-weight: 400;
         font-size: 14px;
-        letter-spacing: 0.04em;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
         position: relative;
-        box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.8);
     }
     .sticker-flower {
         border-radius: 50% 38% 55% 45% / 50% 50% 50% 50%;
@@ -293,29 +267,31 @@
             26% 94%, 22% 81%, 7% 79%, 10% 65%, 0% 50%, 10% 35%, 7% 21%,
             22% 19%, 26% 6%, 39% 11%
         );
-        padding: 16px 24px;
+        padding: 16px 26px;
     }
-    .sticker-pill {
-        border-radius: 9999px;
+    .sticker-emerald {
+        background: var(--emerald);
+        color: #000;
     }
 
-    /* Scalloped section divider */
-    .scallop-top {
+    /* Corrugated/scalloped bottom divider for dark sections */
+    .corrugated-bottom {
         position: relative;
     }
-    .scallop-top::before {
+    .corrugated-bottom::after {
         content: "";
         position: absolute;
-        top: -1px;
+        bottom: -1px;
         left: 0;
         right: 0;
-        height: 36px;
-        background-image: radial-gradient(circle at 18px 0, var(--brand-cream) 18px, transparent 19px);
-        background-size: 36px 36px;
+        height: 40px;
+        background-image: radial-gradient(
+            circle at 20px 0,
+            var(--bg-0) 20px,
+            transparent 21px
+        );
+        background-size: 40px 40px;
         background-repeat: repeat-x;
-        background-position: 0 -18px;
-    }
-    .scallop-top-dark::before {
-        background-image: radial-gradient(circle at 18px 0, var(--brand-black) 18px, transparent 19px);
+        background-position: 0 20px;
     }
 }
